@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biswarup Modoke</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Font Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <!--=== Google Fonts ===-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!--==== Owl Carasol css =====--->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  <link rel="stylesheet" href="assects/css/style.css" type="text/css">
+  <link rel="stylesheet" href="assects/css/media.css" type="text/css">
+
+</head>
+<body>
+
+<!--navbar start-->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-broun shadow-sm fixed-top">
+  <div class="container-fluid mx-lg-5 py-1 flex-lg-row flex-row-reverse">
+
+    <a class="navbar-brand mx-auto" href="#"><img src="assects/images/biswarup logo.png" alt="logo"></a>
+    
+    <button style="border: none; color: aliceblue;" class="navbar-toggler px-2 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+      <i style="font-size: 30px;" class="bi bi-text-left"></i>
+    </button>
+
+
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto mx-auto mb-2 mb-lg-0 beng-t">
+        <li class="nav-item mx-4">
+          <a class="nav-link active" aria-current="page" href="#banner">Home</a>
+        </li>
+        <li class="nav-item mx-4">
+          <a class="nav-link" href="#about">আমার সম্পর্কে</a>
+        </li>
+        <li class="nav-item mx-4">
+          <a class="nav-link" href="#books">কাব‍্যগ্রন্থ</a>
+        </li>
+        <li class="nav-item mx-4">
+          <a class="nav-link" href="#poem">কবিতা</a>
+        </li>
+        <li class="nav-item mx-4">
+          <a class="nav-link" href="#contact">যোগাযোগ</a>
+        </li>
+        
+      </ul>
+
+
+      <div class="col-3">
+        <form id="search_bar" class="form-control d-flex justify-content-between align-items-center" style="border-radius:10px;">
+          <input style="border-radius:10px 0px 0px 10px;" class="p-2 w-100 border-0 border-end" type="search" name="search" id="search" placeholder="Search Here...">
+          <button style="border: none;" id="sarch" type="submit" class="d-block btn btn-light text-center mx-1 focus-ring-none"><i class="fa fa-search"></i></button>
+         </form>
+      </div>
+
+      
+    </div>
+
+    <div class="offcanvas offcanvas-start bg-broun d-lg-none" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <a class="navbar-brand pt-2" href="#"><img src="assects/images/biswarup logo.png" alt="logo"></a>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav me-auto mx-auto mb-5 mb-lg-0 beng-t">
+          <li class="nav-item mx-2" data-bs-dismiss="offcanvas">
+            <a class="nav-link active" aria-current="page" href="#banner"><h3>Home</h3></a>
+          </li>
+          <li class="nav-item mx-2" data-bs-dismiss="offcanvas">
+            <a class="nav-link" href="#about"><h3>আমার সম্পর্কে</h3></a>
+          </li>
+          <li class="nav-item mx-2" data-bs-dismiss="offcanvas">
+            <a class="nav-link" href="#books"><h3>কাব‍্যগ্রন্থ</h3></a>
+          </li>
+          <li class="nav-item mx-2" data-bs-dismiss="offcanvas">
+            <a class="nav-link" href="#poem"><h3>কবিতা</h3></a>
+          </li>
+          <li class="nav-item mx-2" data-bs-dismiss="offcanvas">
+            <a class="nav-link" href="#contact"><h3>যোগাযোগ</h3></a>
+          </li>
+          
+        </ul>
+        <div class="col-12">
+          <form id="search_bar" class="form-control d-flex justify-content-between align-items-center" style="border-radius:10px;">
+            <input style="border-radius:10px 0px 0px 10px;" class="p-2 w-100 border-0 border-end" type="search" name="search" id="search" placeholder="Search Here...">
+            <button style="border: none;" id="sarch" type="submit" class="d-block btn btn-light text-center mx-1 focus-ring-none"><i class="fa fa-search"></i></button>
+           </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!--navbar end-->
+
+<!--Banner part start-->
+
+<section id="banner" class="container-fluid mx-auto p-0 hero-image overflow-hidden" >
+  <img src="assects/images/alvaro-serrano-hjwKMkehBco-unsplash.png" alt="banner-image" class="img-fluid w-100" style="height: 80vh; object-fit: cover;">
+  <div class="hero-text col-12">
+    <h1 class="pb-3 beng-h" style="font-weight: 600;">আমি বিশ্বরূপ মোদক</h1>
+    <p class=" beng-t midiam">এবং আমার জীবন এবং কবিতা...</p>
+    <section id="section05" class="demo">
+      <a href="#about" class="beng-t"><span></span>স্ক্রল করুন</a>
+    </section>
+  </div>
+</section>
+
+<!--Banner part end-->
+<!--about part start-->
+
+<section id="about" class="container-fluid bg-custom">
+  <div class="container">
+  <div class="row p-2 p-lg-5">
+    <div class="col-12 col-lg-6 my-5 "><img src="assects/images/pexels-andrea-piacquadio-874158.jpg" alt="" class="w-100"></div>
+    <div class="col-12 col-lg-6 my-5 p-5 bg-light text-area ">
+      <h1 class="mb-3 beng-h">কবির সম্বন্ধে</h1>
+      <h3 class="mb-3 beng-h">বিশ্বরূপ মোদক</h3>
+      <div class="mb-5">
+
+        <p class="beng-t pb-2">বিশ্বরূপ মোদক-এর জন্ম ১৯৮৮ সালের ১২ জুলাই দক্ষিণ ২৪ পরগণা জেলার ডায়মণ্ড হারবার মহকুমারের অন্তর্গত, ফলতা থানার ফতেপুর গ্রামে । বাবা- সনাতন মোদক , মা- সন্ধ‍্যা মোদক ।</p>
+
+        <div class="accordion" id="accordionExample">
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button collapsed midiam beng-t" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                শিক্ষা জীবন
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body beng-t">
+                রবীন্দ্রভারতী বিশ্ববিদ‍্যালয় থেকে বাংলা সাহিত্যে স্নাতকোত্তর । কলকাতা বিশ্ববিদ‍্যালয় থেকে বাংলা ভাষা ও সাহিত্যে সাম্মানিক নিয়ে পড়াশোনা এছাড়া, বি . এড . পাশ করেছেন । মাধ‍্যমিক ও উচ্চ-মাধ‍্যমিক পড়া-শোনা শেষ করেছেন -- ' ফতেপুর শ্রীনাথ ইনস্টিটিউশন ' বিদ‍্যালয় থেকে। 
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed midiam beng-t" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                সাহিত্যের প্রতি অনুরাগ
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div class="accordion-body beng-t">
+                ছোটবেলা থেকে সাহিত্যের প্রতি অনুরাগ । প্রথম লেখা প্রকাশিত হয় ২০১৪ সালে  রাজ‍্য ছড়া উৎসব সংখ্যা ,' অজগর  ' পত্রিকায় ।  প্রথম কাব‍্যগ্রন্থ ' ভাষানৌকা ' প্রকাশিত হয়েছিল ২০২১ সালে । দ্বিতীয় কাব‍্যগ্রন্থ- ' কুয়াশা-কাজল' প্রকাশিত হয় ২০২২  সালে ।
+                এছাড়াও  ' আলোর ফুলকি  ' , ' রঙমিলান্তি ', দৈনিক সংবাদ পত্র  ' পুবের কলম  ' এবং বাংলাদেশের বিভিন্ন পত্র-পত্রিকায় ও সংকলন গ্রন্থে নিয়মিত লেখালেখি করছেন । 
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed midiam beng-t" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                কর্মজীবন
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div class="accordion-body beng-t">
+                তিনি গড়ে তুলেছেন সাহিত্যচর্চা  ও সংস্কৃতি বিষয়ক অনুপ্রেরণাদায়ক প্রতিষ্ঠান- ' জ্ঞানান্বেষণ '। কর্মজীবন - শিক্ষকতা ।
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button collapsed midiam beng-t" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                একান্ত অভিলাষ
+              </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+              <div class="accordion-body beng-t">
+                নদীর টানে বেড়িয়ে পরা তাঁর একান্ত অভিলাষ । সমপ্রাণতাবোধই কবির জীবন-সাধনা। তরুলতার মতো কবিতা-কল্পনালতা সঙ্গোপনে বেড়ে চলেছে নিরন্তর তাঁর আবেগের আলোকিত বারান্দায় । তাঁর কবিতাপ্রীতি ও সারস্বতবোধ এবং কথনকুশলতা মন-মননের সমন্বয়ে পরিচয়সমৃদ্ধ ।
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <a href="#" class="btn btn-broun px-5"><span class="beng-t">আরও জানুন </span> ></a>
+      
+    </div>
+  </div>
+</div>
+</section>
+
+<!--about part end-->
+<!--books part start-->
+
+<section id="books" class="container-fluid bg-gray pb-lg-5 pb-5">
+  <div class="container p-2 p-lg-5 mb-5 mb-lg-0">
+    <h1 class="text-center m-4 bold beng-h">প্রকাশিত কাব‍্যগ্রন্থ</h1>
+    <p class="text-center text-secondary m-3 beng-t">জীবের মধ্যে সবচেয়ে সম্পূর্ণতা মানুষের। কিন্তু সবচেয়ে অসম্পূর্ণ হয়ে সে জন্মগ্রহণ করে। বাঘ ভালুক তার জীবনযাত্রার পনেরো- আনা মূলধন নিয়ে আসে প্রকৃতির মালখানা থেকে। জীবরঙ্গভূমিতে মানুষ এসে দেখা দেয় দুই শূন্য হাতে মুঠো বেঁধে।
+      মানুষ আসবার পূর্বেই জীবসৃষ্টিযজ্ঞে প্রকৃতির ভূরিব্যয়ের পালা শেষ হয়ে এসেছে। 
+    </p>
+
+    <!--oul carasol-->
+
+  <div class="row mx-auto owl-carousel owl-theme col-12 p-lg-0 px-4">
+
+    <div class="item card my-5 border-0 ">
+      <img src="assects/images/three.jpg" class="mx-auto img-fluid d-block">
+      <h5 class="text-center mt-3">Afteroom Coat Hanger</h5>
+      <h5 class="small text-center mb-4">₹4,999</h5>
+    </div>
+
+    <div class="item card my-5 border-0">
+      <img src="assects/images/two.jpg" class="mx-auto img-fluid d-block">
+      <h5 class="text-center mt-3 dl">Norm Stone Lamp</h5>
+      <h5 class="small text-center mb-4"><code>₹7,954 </code>  ₹5,467</h5>
+    </div>
+
+    <div class="item card my-5 border-0">
+      <img src="assects/images/one.jpg" class="mx-auto img-fluid imh-fluid d-block">
+      <h5 class="text-center mt-3">Norm Wall Clock</h5>
+      <h5 class="small text-center mb-4">₹4,999</h5>
+    </div>
+
+    <div class="item card my-5 border-0">
+      <img src="assects/images/two.jpg" class="mx-auto img-fluid d-block">
+      <h5 class="text-center mt-3 dl">Norm Stone Lamp</h5>
+      <h5 class="small text-center mb-4"><code>₹7,954 </code>  ₹5,467</h5>
+    </div>
+
+  
+  </div>
+  
+  <!--oul carasol-->
+
+  <a href="#" class="btn btn-broun float-end px-4 me-4 me-lg-0"><span class="beng-t">সব বই দেখুন</span> ></a>
+
+
+  </div>
+</section>
+
+<!--books part end-->
+<!--poem's part start-->
+
+<section id="poem" class="container-fluid bg-custom py-lg-5 py-5">
+  <div class="container px-2 px-lg-5 ">
+    <h1 class="text-center m-4 beng-h bold">প্রকাশিত কবিতা</h1>
+    <p class="text-center text-secondary pb-4 px-3 px-lg-0 beng-t">জীবের মধ্যে সবচেয়ে সম্পূর্ণতা মানুষের। কিন্তু সবচেয়ে অসম্পূর্ণ হয়ে সে জন্মগ্রহণ করে। 
+      বাঘ ভালুক তার জীবনযাত্রার পনেরো- আনা মূলধন নিয়ে আসে প্রকৃতির মালখানা থেকে। জীবরঙ্গভূমিতে মানুষ এসে দেখা দেয় দুই শূন্য হাতে মুঠো 
+      বেঁধে। মানুষ আসবার পূর্বেই জীবসৃষ্টিযজ্ঞে প্রকৃতির ভূরিব্যয়ের পালা শেষ হয়ে এসেছে।
+    </p>
+    <div class="p-3 p-lg-0">
+      <!--text include-->
+      <div class="row bg-light p-4 my-4 rounded">
+        <div class="col-lg-9 col-sm-12 text-p">
+          <h2 class="py-2 hed-name bold beng-h">বিবর্তিত</h2>
+          <h5 class="pb-2 beng-h bold">বিশ্বরূপ  মোদক </h5>
+          <p class="text-e beng-t">
+              বাস্তবতার মহার্ঘ‍্য-মাটির এই গ্রহে<br>
+              জীবনের চিরস্থির-সত‍্যগুলি বিবর্তিত হয়ে যায়--- <br>  
+              অব‍্যবহৃত গতিতে দ্বান্দ্বিক ছন্দে ।<br><br>
+              
+              
+              
+              গাছের শুকনো ডালে শ‍্যাওলার পাতলা-বিছানায় <br>
+              বৃদ্ধপাখিটিও বসে বসে দেখে---<br>
+              মহা-সময়ের পরিবর্তনশীল সংবিধানে তার সংসারও বিবর্তিত ।<br><br>
+              
+              
+              
+              শুকনো তালপাতার ঝুলন্ত মিউজিক-অডিটোরিয়ামে<br>
+              বাবুই পাখি প্রকৃতির কাছে যে-গান শুনে নেয়<br>
+              সে-গানের সুরও বিবর্তনের।<br><br>
+              
+              
+              
+              অবিচ্ছিন্ন গতিতে বিবর্তনের পথে<br>
+              বিকালের ধুলো মেখে গোধূলির হলুদ রঙ----<br>
+              বিবর্তিত হবে ,  তোমার চোখের  রঙে ।
+          </p>
+        </div>
+        <form class="col-lg-3 col-sm-12 d-grid gap-2 mx-auto pt-sm-3 pt-lg-0">
+          <div class="row col-12 mx-auto gap-2 px-0">
+            <button class="col btn btn-broun">likes<span class="badge bg-broun">( 10 )</span></button>
+            <button class="col btn btn-broun">share<span class="badge bg-broun">( 10 )</span></button>
+          </div>
+          <div class="col form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"></textarea>
+            <label for="floatingTextarea2">Write Your Comments</label>
+          </div>
+          <button class="col btn btn-broun">submit <i class="fa-solid fa-caret-right"></i></button>
+        </form>
+      </div>
+      <!--text include-->
+
+      <div class="row bg-light p-4 my-4 rounded">
+        <div class="col-lg-9 col-sm-12 text-p">
+          <h2 class="py-2 hed-name bold beng-h">সংক্রান্তিতে</h2>
+          <h5 class="pb-2 beng-h bold">বিশ্বরূপ মোদক</h5>
+          <p class="text-e beng-t">
+            ব্রহ্মাণ্ডের বাসর ঘরে<br>
+            প্রকৃতিরও সঙ্গম করতে ইচ্ছে হয় ,<br>
+            সে সহজিয়া সাধনা করে । চৈত্রের বিষণ্ন-যৌবনে <br>
+            নিম্বোস্ট্র‍্যাটাস-মেঘেদের সঙ্গমে <br>
+            মাটির যোনি ভিজে যায় ।<br><br>
+              
+              
+            তোমার গর্ভে ভ্রুণ যেমন বেড়ে ওঠে---<br>
+            তেমনি ভ্রুণ বীজের শরীরে , বীজপত্র হলে---<br>
+            অরণ‍্যের পরিবারে শুরু হয় অন্নপ্রাশন  ।<br><br>
+
+            আজ জন্মের আনন্দ-উৎসবে তুমি আর আমি  ;<br>
+            এ সংসার-চড়ক গাছে সবাইকে ঘুরতে হয় ---<br>
+            শুধু এখন নয় , জন্ম-জন্মান্তর ।<br><br>
+
+
+              তবে ,এই চৈত্র-সংক্রান্তিতে <br>
+              মৃত্যুর অপেক্ষায় জন্ম দাঁড়িয়ে থাকে  ।
+          </p>
+        </div>
+        <form class="col-lg-3 col-sm-12 d-grid gap-2 mx-auto pt-sm-3 pt-lg-0">
+          <div class="row col-12 mx-auto gap-2 px-0">
+            <button class="col btn btn-broun">likes<span class="badge bg-broun">( 10 )</span></button>
+            <button class="col btn btn-broun">share<span class="badge bg-broun">( 10 )</span></button>
+          </div>
+          <div class="col form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"></textarea>
+            <label for="floatingTextarea2">Write Your Comments</label>
+          </div>
+          <button class="col btn btn-broun">submit <i class="fa-solid fa-caret-right"></i></button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="d-flex justify-content-center align-content-center mb-4"><a href="#" class="btn btn-broun mt-3 px-4"><span class="beng-t">সমস্ত কবিতা দেখুন</span> ></a></div>
+  </div>  
+</section>
+
+<!--poem's part end-->
+
+<!--Contact from start-->
+
+<section id="contact" class="container-fluid bg-gray py-5">
+  <div class="container p-3 p-lg-5">
+    <div class="row">
+      <div class="col-lg-4 d-block">
+        <h1 class="beng-h bold">যোগাযোগ করুন</h1>
+        <p class="text-secondary col-lg-11 col-12 pb-4 beng-t">জীবরঙ্গভূমিতে মানুষ এসে দেখা দেয় দুই শূন্য হাতে মুঠো বেঁধে। 
+          মানুষ আসবার পূর্বেই জীবসৃষ্টিযজ্ঞে প্রকৃতির ভূরিব্যয়ের পালা শেষ হয়ে এসেছে।
+        </p>
+        <table class="row pb-4 ">
+          <h2 class="midiam pb-2 beng-t">অবস্থান</h2>
+          <tr>
+            <td class="px-3 py-1 bg-broun rounded-3 text-light" style=" font-size: 30px;"><i class="bi bi-pin-map-fill"></i></td>
+            <td class="px-3">Fatepur<br>
+              Fatepur, West Bengal<br>
+              743513</td>
+          </tr>
+        </table>
+        <table class="row pb-4">
+          <h2 class="midiam pb-2 beng-t">ফোন নম্বর</h2>
+          <tr>
+            <td class="px-3 py-2 bg-broun rounded-3 text-light" style=" font-size: 30px;"><i class="bi bi-headset"></i></td>
+            <td class="px-3">+91 54545354512<br>
+              +91 31054039926<br>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="col-lg-8">
+        <h2 class="pt-4 pb-4 beng-h">যোগাযোগ ফর্ম </h2>
+
+        <form class="form-horizontal">
+          <div class="row g-3">
+            <div class="col-md">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInputGrid" placeholder="Name Hear" required>
+                <label for="floatingInputGrid" class="beng-t">আপনার নাম</label>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="form-floating">
+                <input type="email" class="form-control" id="floatingInputGrid" placeholder="name@example.com">
+                <label for="floatingInputGrid" class="beng-t">ইমেইল ঠিকানা</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-floating my-3">
+            <select class="form-select beng-t" id="floatingSelect" aria-label="Floating label select example">
+              <option value="active">আপনার প্রয়োজন নির্বাচন </option>
+              <option value="1">এক</option>
+              <option value="2">দুই</option>
+              <option value="3">অন্যান্য</option>
+            </select><label for="floatingSelect" class="beng-t">আপনার বিষয় নির্বাচন করুন</label>
+          </div>
+
+          <div class="form-floating pb-4">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 130px"></textarea>
+            <label for="floatingTextarea2" class="beng-t">আপনার মন্তব্য</label>
+          </div>
+
+          <div class="d-grid d-lg-block"><button class="btn btn-broun px-5 py-2 "><span class="beng-t">ফর্ম জমা</span> ></button></div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Contact from end-->
+
+<!--Footer part start-->
+
+<footer id="footer" class="container-fluid bg-broun p-2">
+
+  <div class="container px-3 px-lg-5 pt-5 pb-3">
+    <div class="row g-4 footer-top">
+      <div class="col-lg-4 col-md-6">
+        <div class="img pb-4"><img src="assects/images/biswarup logo.png" alt="logo"></div>
+        <p class="text-light me-lg-5">Contrary to popular belief, Lorem
+          Ipsum is not simply text...</p>
+      </div>
+      <div class="col-lg-3 col-md-6  pt-4">
+        <h4 class="text-light">Follow Us</h4>
+        <div class="icon mt-3">
+          <!-- Facebook -->
+          <a class="btn btn-nav btn-floating m-1" 
+             href="#!"
+             role="button"
+             ><i class="fab fa-facebook-f"></i
+            ></a>
+
+          <!-- Twitter -->
+          <a
+             class="btn btn-nav btn-floating m-1"
+             href="#!"
+             role="button"
+             ><i class="fab fa-twitter"></i
+            ></a>
+
+          <!-- Google -->
+          <a
+             class="btn btn-nav btn-floating m-1"
+             href="#!"
+             role="button"
+             ><i class="fab fa-google"></i
+            ></a>
+
+          <!-- Instagram -->
+          <a
+             class="btn btn-nav btn-floating m-1"
+             href="#!"
+             role="button"
+             ><i class="fab fa-instagram"></i
+            ></a>
+
+
+
+        </div>
+      
+      </div>
+      <div class="col-lg-5 col-md-12 pt-4">
+        <h4 class="text-light">Get Updated</h4>
+        <p style="color: rgba(255, 255, 255, 0.541);" class="mt-3">To get our latest update feel free to subcribe ...</p>
+        <form class="form-control mb-4 d-flex justify-content-between align-items-center">
+          <input class="p-2 w-100" type="email" placeholder="Email address" style="border: none;">
+          <button class="btn btn-secondary"> Subscribe</button>
+      </form>
+      </div>
+    </div>
+
+    <div id="footer-bottom" class="row pt-4 border-top ">
+      <P class="col-sm-12 col-md-9 col-lg-4 text-footer light text-lg-start text-md-start text-center" style="text-decoration: none;">© 2023 <a href="#">Biswarup Modake</a>, Inc. All rights reserved.</P>
+      <P class="col-sm-12 col-md-3 col-lg-4 text-footer light text-lg-center text-center" style="text-decoration: none;"><a href="#">Privecy Policy</a></P>
+      <P class="col-sm-12 col-md-9 col-lg-4 text-footer light text-lg-end text-md-start text-center" style="text-decoration: none;">Created And Designd By <a href="#">Pranit Naskar</a></P>
+    </div>
+
+  </div>
+
+</footer>
+
+<!--Footer part end-->
+
+
+</body>
+
+<!--==== Bootstrap5 JS CDN =====--->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!--==== Owl Carasol JS =====--->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!--==== Owl Carasol JS =====--->
+
+<script src="assects/js/plugins.js"></script>
+
+
+<!--internal js-->
+
+<script type="text/javascript">
+  $(document).ready(function () {
+      $(".owl-carousel").owlCarousel();
+  });
+
+  $('.owl-carousel').owlCarousel({
+      loop: true,
+      nav:true,
+      dots:true,
+      margin:20,
+      autoplay:true,
+      smartSpeed: 1400,
+      responsiveClass:true,
+      navText:["<",">"],
+      responsive: {
+          0: {
+              items: 1
+          },
+          600: {
+              items: 2
+          },
+          1000: {
+              items: 3
+          }
+      }
+  });
+
+
+  /*============ Scroll Up Activation ============*/
+  $.scrollUp({
+    scrollText: '<i class="bi bi-chevron-up"></i>',
+    easingType: 'linear',
+    scrollSpeed: 900,
+    animation: 'slide'
+  });
+
+
+</script>
+
+<!--internal js-->
+
+</html>
+
+    
+    
