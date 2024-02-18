@@ -293,7 +293,29 @@ box-shadow: 2px 2px 50px -4px rgba(0,0,0,0.35);
 }
 
 
+#testimonial{
+  background: linear-gradient(
+            to top,
+            #f6f6f6 0%,
+            #f6f6f6 50%,
+            #f1e1e1 50%,
+            #f1e1e1 100%
+        );
+        text-align: center;
+        color: black;
+        font-size: 1.5rem;
+}
 
+
+
+
+#testimonial p{
+  font-size: medium;
+}
+
+#testimonial .demo{
+  padding:135px;
+}
 
 #footer p.text-light{
   font-weight: 300;
@@ -351,4 +373,8 @@ padding: 0;
 .form-select:focus{
   box-shadow: none !important;
   border: 2px solid #b82b08;
+}
+
+.hidden {
+  display: none;
 }
