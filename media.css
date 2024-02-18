@@ -156,6 +156,12 @@
       height:100px;
     }
 
+    #testimonial .demo{
+      padding-bottom:138px;
+      padding-left: 1px;
+      padding-right: 1px;
+      padding-top:80px;
+    }
  
 }
 
@@ -198,7 +204,10 @@
       height:100px;
     }
   
-    
+    #testimonial .demo{
+      padding-bottom:135px;
+      padding-top:80px;
+    }
 
 }
 
@@ -245,6 +254,10 @@
       height:100px;
     }
   
+    #testimonial .demo{
+      padding-bottom:135px;
+      padding-top:80px;
+    }
     
 }
 
@@ -308,8 +321,11 @@
         display: flex;
         height:400px;
       }
-    
 
+      #testimonial .demo{
+        padding-bottom:135px;
+        padding-top:80px;
+      }
 }
 
 @media screen and (min-width: 1400px) {
@@ -406,6 +422,11 @@
   #floatingTextarea2{
     display: flex;
     height:400px;
+  }
+
+  #testimonial .demo{
+    padding-bottom:135px;
+    padding-top:80px;
   }
 
 }
