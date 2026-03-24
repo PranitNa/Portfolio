@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hotel Radiant Kolkata — Park Circus</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#0F0D0B;--ink2:#2B2623;--muted:#7A716A;--soft:#B5ABA3;
+  --accent:#E8622A;--accent2:#FF8C5A;--bg:#FAFAF7;--card:#F4F0E8;
+  --white:#FFFFFF;--border:#E8E2D9;--success:#1DB954;
+  --r:14px;--r-sm:8px;
+  --shadow:0 4px 24px rgba(15,13,11,.08);
+  --shadow-lg:0 16px 64px rgba(15,13,11,.14);
+}
+*,::before,::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--soft);border-radius:99px}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--accent);color:#fff;text-align:center;padding:.55rem 1rem;font-size:.78rem;font-weight:500;letter-spacing:.02em;z-index:200;position:relative}
+.topbar a{color:#fff;font-weight:700;text-decoration:underline}
+
+/* ── NAV ── */
+nav#nav{position:sticky;top:0;z-index:150;background:rgba(250,250,247,.94);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+nav#nav.elevated{box-shadow:var(--shadow)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.nav-brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nav-brand-icon{width:38px;height:38px;background:var(--ink);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.nav-brand-icon svg{fill:#fff}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.1}
+.nav-brand-name{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--ink)}
+.nav-brand-sub{font-size:.68rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:.2rem;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:500;color:var(--muted);text-decoration:none;padding:.5rem .85rem;border-radius:var(--r-sm);transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--ink);background:var(--card)}
+.nav-actions{display:flex;align-items:center;gap:.75rem}
+.nav-phone{display:flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:500;color:var(--ink);text-decoration:none;padding:.5rem .9rem;border:1.5px solid var(--border);border-radius:99px;transition:border-color .2s,background .2s}
+.nav-phone:hover{border-color:var(--ink);background:var(--card)}
+.btn-book-nav{background:var(--accent);color:#fff;font-size:.88rem;font-weight:600;border:none;border-radius:99px;padding:.6rem 1.4rem;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s,box-shadow .2s;white-space:nowrap;display:inline-block}
+.btn-book-nav:hover{background:var(--accent2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(232,98,42,.3)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:.4rem}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;transition:.3s;border-radius:2px}
+
+/* ── MOBILE MENU ── */
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--white);z-index:300;flex-direction:column;padding:2rem;overflow-y:auto}
+.mobile-menu.open{display:flex}
+.mobile-menu-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:2.5rem}
+.mobile-close{background:var(--card);border:none;width:38px;height:38px;border-radius:50%;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.mobile-nav-links{display:flex;flex-direction:column;gap:.1rem;margin-bottom:2rem}
+.mobile-nav-links a{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;color:var(--ink);text-decoration:none;padding:.75rem 0;border-bottom:1px solid var(--border);transition:color .2s}
+.mobile-nav-links a:hover{color:var(--accent)}
+.mobile-cta{background:var(--accent);color:#fff;font-size:1rem;font-weight:700;border:none;border-radius:var(--r-sm);padding:1rem;cursor:pointer;text-align:center;text-decoration:none;display:block;transition:background .2s}
+.mobile-cta:hover{background:var(--accent2)}
+
+/* ── HERO ── */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.hero-slides{position:absolute;inset:0;z-index:0}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease-in-out}
+.hero-slide.active{opacity:1;animation:kenBurns 8s ease-in-out forwards}
+.hero-slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1800&q=85')}
+.hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1800&q=85')}
+.hero-slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1800&q=85')}
+@keyframes kenBurns{from{transform:scale(1)}to{transform:scale(1.07)}}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:
+  linear-gradient(to top,rgba(8,5,2,.97) 0%,rgba(8,5,2,.62) 35%,rgba(8,5,2,.2) 65%,transparent 100%),
+  linear-gradient(to right,rgba(8,5,2,.35) 0%,transparent 55%)}
+.hero-dots{position:absolute;top:2rem;right:2rem;z-index:10;display:flex;gap:.5rem}
+.hero-dot{width:6px;height:6px;border-radius:99px;background:rgba(255,255,255,.3);cursor:pointer;transition:width .35s,background .3s;border:none;padding:0}
+.hero-dot.active{width:24px;background:#fff}
+.hero-content{position:relative;z-index:5;padding:0 5vw 2.5rem;display:flex;flex-direction:column;align-items:flex-start}
+.hero-pills{display:flex;align-items:center;gap:.75rem;margin-bottom:2rem;flex-wrap:wrap;animation:fadeUp .8s .2s both}
+.hero-pill-live{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.1);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.18);border-radius:99px;padding:.4rem .95rem;font-size:.75rem;font-weight:500;color:#fff}
+.hero-pill-live .dot{width:7px;height:7px;background:var(--success);border-radius:50%;box-shadow:0 0 0 3px rgba(29,185,84,.3);animation:pulse 2s infinite;flex-shrink:0}
+.hero-pill-rating{display:inline-flex;align-items:center;gap:.4rem;background:rgba(232,98,42,.88);backdrop-filter:blur(8px);border-radius:99px;padding:.4rem .95rem;font-size:.75rem;font-weight:600;color:#fff}
+.hero-title{font-family:'Fraunces',serif;font-size:clamp(3rem,7vw,6.5rem);font-weight:900;line-height:1.0;letter-spacing:-.04em;color:#fff;margin-bottom:1.1rem;animation:fadeUp .9s .35s both;max-width:820px}
+.hero-title em{font-style:italic;color:#FF9B6A}
+.hero-subtitle{font-size:clamp(.92rem,1.6vw,1.12rem);color:rgba(255,255,255,.62);font-weight:300;line-height:1.65;max-width:520px;margin-bottom:2.8rem;animation:fadeUp .9s .5s both}
+.hero-booking{width:100%;max-width:920px;background:rgba(255,255,255,.1);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.17);border-radius:var(--r);padding:1.5rem 1.75rem;animation:fadeUp .9s .65s both;margin-bottom:2.5rem}
+.hb-top{display:grid;grid-template-columns:1fr 1fr 1fr 1fr auto;gap:.85rem;align-items:end}
+.hb-field{display:flex;flex-direction:column;gap:.35rem}
+.hb-label{font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.hb-input{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.14);border-radius:var(--r-sm);padding:.78rem 1rem;color:#fff;font-family:'DM Sans',sans-serif;font-size:.9rem;width:100%;outline:none;transition:border-color .2s,background .2s;appearance:none;-webkit-appearance:none}
+.hb-input:focus{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.13)}
+.hb-input option{background:#1c1008;color:#fff}
+.hb-input::placeholder{color:rgba(255,255,255,.28)}
+.hb-input[type=date]::-webkit-calendar-picker-indicator{filter:invert(1);opacity:.55;cursor:pointer}
+.btn-hb{background:var(--accent);color:#fff;font-size:.9rem;font-weight:700;border:none;border-radius:var(--r-sm);padding:.8rem 1.8rem;cursor:pointer;white-space:nowrap;transition:background .2s,transform .15s,box-shadow .2s;display:flex;align-items:center;gap:.5rem;align-self:flex-end}
+.btn-hb:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(232,98,42,.45)}
+.hb-bottom{display:flex;align-items:center;gap:1.6rem;margin-top:1rem;flex-wrap:wrap}
+.hb-trust{display:flex;align-items:center;gap:.45rem;font-size:.74rem;color:rgba(255,255,255,.48)}
+.hb-trust-check{width:16px;height:16px;border-radius:50%;background:rgba(29,185,84,.18);border:1px solid rgba(29,185,84,.38);display:flex;align-items:center;justify-content:center;font-size:.55rem;color:var(--success);flex-shrink:0}
+.hero-scroll{position:absolute;bottom:2rem;right:5vw;z-index:5;display:flex;align-items:center;gap:.7rem;color:rgba(255,255,255,.38);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;animation:fadeUp .8s 1.2s both}
+.hero-scroll-line{width:40px;height:1px;background:linear-gradient(to right,rgba(255,255,255,.38),transparent)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.45)}}
+
+/* ── FEATURES BAND ── */
+.features-band{max-width:1280px;margin:0 auto;padding:3.5rem 2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.feat{display:flex;align-items:center;gap:1rem;background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:1.2rem 1.4rem;transition:border-color .25s,transform .25s,box-shadow .25s}
+.feat:hover{border-color:var(--ink);transform:translateY(-3px);box-shadow:var(--shadow)}
+.feat-icon{width:42px;height:42px;border-radius:var(--r-sm);background:var(--card);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.feat-text strong{display:block;font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:.15rem}
+.feat-text span{font-size:.78rem;color:var(--muted)}
+
+/* ── SECTION UTILS ── */
+.section-wrap{max-width:1280px;margin:0 auto;padding:5rem 2rem}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;gap:2rem;flex-wrap:wrap}
+.section-kicker{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;display:block}
+.section-title-lg{font-family:'Fraunces',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:var(--ink);line-height:1.15;letter-spacing:-.02em}
+.see-all{font-size:.88rem;font-weight:600;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:.3rem;white-space:nowrap;transition:color .2s}
+.see-all:hover{color:var(--ink)}
+.see-all svg{transition:transform .2s}
+.see-all:hover svg{transform:translateX(3px)}
+
+/* ── ROOMS ── */
+.rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.room-card{background:var(--white);border-radius:var(--r);overflow:hidden;border:1.5px solid var(--border);transition:box-shadow .3s,transform .3s}
+.room-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.room-img-wrap{position:relative;overflow:hidden}
+.room-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.room-card:hover .room-img{transform:scale(1.05)}
+.room-badge{position:absolute;top:.85rem;left:.85rem;background:var(--ink);color:#fff;font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.3rem .75rem;border-radius:99px}
+.room-badge.popular{background:var(--accent)}
+.room-badge.avail{background:var(--success)}
+.room-body{padding:1.4rem}
+.room-name{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:.4rem}
+.room-desc{font-size:.85rem;color:var(--muted);line-height:1.55;margin-bottom:1rem}
+.room-amenities{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.room-tag{background:var(--card);color:var(--muted);font-size:.72rem;font-weight:500;padding:.25rem .65rem;border-radius:99px}
+.room-footer{display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(--border)}
+.room-price .from{font-size:.72rem;color:var(--muted);display:block;margin-bottom:.1rem}
+.room-price .amount{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;color:var(--ink)}
+.room-price .per{font-size:.75rem;color:var(--muted)}
+.btn-room{background:var(--ink);color:#fff;font-size:.82rem;font-weight:600;border:none;border-radius:var(--r-sm);padding:.6rem 1.2rem;cursor:pointer;transition:background .2s}
+.btn-room:hover{background:var(--accent)}
+
+/* ── ABOUT ── */
+.about-section{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1280px;margin:0 auto;padding:5rem 2rem}
+.about-imgs{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;position:relative}
+.about-img1{grid-column:1/3;border-radius:var(--r);overflow:hidden;aspect-ratio:16/9}
+.about-img1 img,.about-img2 img,.about-img3 img{width:100%;height:100%;object-fit:cover;display:block}
+.about-img2,.about-img3{border-radius:var(--r);overflow:hidden;aspect-ratio:1}
+.about-stat-card{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:1.2rem 1.5rem;box-shadow:var(--shadow-lg);display:flex;gap:1.5rem}
+.about-stat .num{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:700;color:var(--ink)}
+.about-stat .lbl{font-size:.72rem;color:var(--muted);margin-top:.1rem}
+.about-stat-div{width:1px;background:var(--border)}
+.about-text h2{font-family:'Fraunces',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:var(--ink);line-height:1.2;letter-spacing:-.02em;margin-bottom:1.2rem}
+.about-text p{font-size:1rem;line-height:1.75;color:var(--muted);margin-bottom:1rem;font-weight:300}
+.about-checks{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.5rem 0}
+.check-item{display:flex;align-items:center;gap:.6rem;font-size:.88rem;color:var(--ink);font-weight:500}
+.check-item::before{content:'✓';width:20px;height:20px;background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;flex-shrink:0}
+.btn-primary{background:var(--ink);color:#fff;font-size:.95rem;font-weight:600;border:none;border-radius:var(--r-sm);padding:.85rem 2rem;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s,box-shadow .2s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-primary:hover{background:var(--ink2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(15,13,11,.2)}
+
+/* ── AMENITIES ── */
+.amenities-section{background:var(--ink)}
+.amenities-inner{max-width:1280px;margin:0 auto;padding:5rem 2rem}
+.amenities-head{text-align:center;margin-bottom:3rem}
+.amenities-head .section-kicker{color:var(--accent2)}
+.amenities-head .section-title-lg{color:var(--white)}
+.amenities-head p{font-size:1rem;color:var(--soft);margin-top:.75rem;font-weight:300}
+.amenities-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);overflow:hidden}
+.am-item{background:rgba(255,255,255,.03);padding:1.8rem 1.5rem;transition:background .3s}
+.am-item:hover{background:rgba(232,98,42,.1)}
+.am-emoji{font-size:1.8rem;margin-bottom:.8rem}
+.am-name{font-size:.88rem;font-weight:600;color:var(--white);margin-bottom:.3rem}
+.am-desc{font-size:.78rem;color:var(--soft);line-height:1.5}
+
+/* ── SOCIAL PROOF ── */
+.proof-band{background:linear-gradient(135deg,#FFF8F3,#FFF0E4)}
+.proof-inner{max-width:1280px;margin:0 auto;padding:4rem 2rem;display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:center}
+.proof-big .num{font-family:'Fraunces',serif;font-size:5rem;font-weight:900;color:var(--ink);line-height:1}
+.proof-big .stars{color:#F59E0B;font-size:1.3rem;margin:.3rem 0}
+.proof-big .sub{font-size:.88rem;color:var(--muted)}
+.proof-reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.review-card{background:var(--white);border-radius:var(--r);padding:1.4rem;box-shadow:0 2px 12px rgba(15,13,11,.06);transition:transform .3s,box-shadow .3s}
+.review-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.review-stars{color:#F59E0B;font-size:.85rem;margin-bottom:.6rem}
+.review-text{font-size:.85rem;line-height:1.6;color:var(--ink2);margin-bottom:.8rem;font-style:italic}
+.review-author{font-size:.75rem;font-weight:600;color:var(--muted)}
+.review-source{font-size:.7rem;color:var(--soft)}
+
+/* ── GALLERY ── */
+.gallery-mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,220px);gap:.75rem}
+.gal-item{border-radius:var(--r);overflow:hidden;cursor:pointer;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.22,1,.36,1);filter:brightness(.9)}
+.gal-item:hover img{transform:scale(1.06);filter:brightness(1)}
+.gal-item::after{content:'View';position:absolute;inset:0;background:rgba(15,13,11,.4);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.85rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:0;transition:opacity .3s}
+.gal-item:hover::after{opacity:1}
+.gal-span2{grid-column:span 2}
+.gal-row2{grid-row:span 2}
+
+/* ── LOCATION ── */
+.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.location-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+.location-map-wrap{height:340px;overflow:hidden}
+.location-map-wrap iframe{width:100%;height:100%;border:none;display:block}
+.location-details{padding:1.4rem}
+.location-address{display:flex;align-items:flex-start;gap:.7rem;margin-bottom:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--muted);line-height:1.6}
+.location-address .icon{font-size:1.1rem;margin-top:.1rem;flex-shrink:0}
+.location-nearby h4{font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.8rem}
+.nearby-item{display:flex;align-items:center;justify-content:space-between;padding:.55rem 0;border-bottom:1px solid var(--border);font-size:.88rem}
+.nearby-item:last-child{border-bottom:none}
+.nearby-name{color:var(--ink);font-weight:500;display:flex;align-items:center;gap:.5rem}
+.nearby-dist{color:var(--accent);font-weight:600;font-size:.82rem;background:#FFF0E8;padding:.2rem .6rem;border-radius:99px}
+.location-info-right h3{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:700;color:var(--ink);margin-bottom:1rem;line-height:1.2}
+.location-info-right p{font-size:.95rem;line-height:1.7;color:var(--muted);margin-bottom:1.5rem;font-weight:300}
+.contact-cards{display:flex;flex-direction:column;gap:.75rem}
+.contact-card{display:flex;align-items:center;gap:1rem;background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:1rem 1.2rem;text-decoration:none;transition:border-color .2s,box-shadow .2s}
+.contact-card:hover{border-color:var(--accent);box-shadow:0 4px 16px rgba(232,98,42,.1)}
+.cc-icon{width:38px;height:38px;background:var(--card);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.cc-text .lbl{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+.cc-text .val{font-size:.95rem;font-weight:600;color:var(--ink);margin-top:.1rem}
+
+/* ── FINAL CTA ── */
+.final-cta{background:var(--ink);position:relative;overflow:hidden}
+.final-cta::before{content:'';position:absolute;top:-50%;left:-20%;width:140%;height:200%;background:radial-gradient(ellipse at 60% 50%,rgba(232,98,42,.18) 0%,transparent 65%);pointer-events:none}
+.final-inner{max-width:900px;margin:0 auto;padding:6rem 2rem;text-align:center;position:relative}
+.final-kicker{font-size:.75rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent2);margin-bottom:1rem;display:block}
+.final-title{font-family:'Fraunces',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;color:var(--white);line-height:1.08;letter-spacing:-.03em;margin-bottom:1.2rem}
+.final-title em{font-style:italic;color:var(--accent2)}
+.final-sub{font-size:1.05rem;color:var(--soft);font-weight:300;max-width:540px;margin:0 auto 2.5rem;line-height:1.7}
+.final-btns{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
+.btn-final{background:var(--accent);color:#fff;font-size:1rem;font-weight:700;border:none;border-radius:var(--r-sm);padding:1rem 2.4rem;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s,box-shadow .2s;display:inline-block}
+.btn-final:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 10px 36px rgba(232,98,42,.4)}
+.btn-final-ghost{background:transparent;color:#fff;font-size:1rem;font-weight:500;border:1.5px solid rgba(255,255,255,.2);border-radius:var(--r-sm);padding:1rem 2.4rem;cursor:pointer;text-decoration:none;transition:border-color .2s;display:inline-block}
+.btn-final-ghost:hover{border-color:rgba(255,255,255,.5)}
+.final-note{margin-top:1.5rem;font-size:.8rem;color:var(--soft)}
+.final-note span{color:var(--success);font-weight:600}
+
+/* ── FOOTER ── */
+footer{background:#090807;border-top:1px solid rgba(255,255,255,.06)}
+.footer-top{max-width:1280px;margin:0 auto;padding:3rem 2rem;display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:3rem}
+.footer-brand-text{font-family:'Fraunces',serif;font-size:1.25rem;font-weight:700;color:#fff;margin-bottom:.5rem}
+.footer-brand-desc{font-size:.85rem;line-height:1.65;color:rgba(255,255,255,.35);font-weight:300}
+.footer-col h4{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.32);margin-bottom:1rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.footer-col a{font-size:.88rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-contact-item{display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:rgba(255,255,255,.5);margin-bottom:.7rem}
+.footer-contact-item span.ic{font-size:1rem}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding:1.2rem 2rem;max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.footer-copy{font-size:.78rem;color:rgba(255,255,255,.22)}
+.footer-legal{display:flex;gap:1.5rem}
+.footer-legal a{font-size:.78rem;color:rgba(255,255,255,.22);text-decoration:none;transition:color .2s}
+.footer-legal a:hover{color:rgba(255,255,255,.6)}
+
+/* ── SCROLL REVEAL ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal-l{opacity:0;transform:translateX(-24px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.reveal-l.in{opacity:1;transform:none}
+.reveal-r{opacity:0;transform:translateX(24px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.reveal-r.in{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .features-band{grid-template-columns:repeat(2,1fr)}
+  .rooms-grid{grid-template-columns:1fr 1fr}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem}
+  .about-stat-card{position:static;margin-top:1.5rem}
+  .amenities-grid{grid-template-columns:repeat(2,1fr)}
+  .proof-inner{grid-template-columns:1fr;gap:2rem}
+  .proof-reviews{grid-template-columns:1fr 1fr}
+  .gallery-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,200px)}
+  .gal-span2,.gal-row2{grid-column:span 1;grid-row:span 1}
+  .location-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
+}
+@media(max-width:768px){
+  .topbar{font-size:.72rem;padding:.5rem .75rem}
+  .nav-links,.nav-phone{display:none}
+  .hamburger{display:block}
+  .nav-brand-sub{display:none}
+  .hb-top{grid-template-columns:1fr 1fr}
+  .btn-hb{grid-column:span 2;justify-content:center}
+  .features-band{grid-template-columns:1fr 1fr;padding:2rem 1rem}
+  .rooms-grid{grid-template-columns:1fr}
+  .amenities-grid{grid-template-columns:1fr 1fr}
+  .proof-reviews{grid-template-columns:1fr}
+  .gallery-mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,160px)}
+  .location-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .section-head{flex-direction:column;align-items:flex-start}
+  .section-wrap{padding:3.5rem 1.25rem}
+  .final-inner{padding:4rem 1.5rem}
+  .about-grid{padding:3.5rem 1.25rem}
+}
+@media(max-width:500px){
+  .hb-top{grid-template-columns:1fr}
+  .btn-hb{grid-column:span 1}
+  .hero-booking{padding:1.2rem}
+  .hero-dots{top:1rem;right:1rem}
+  .features-band{grid-template-columns:1fr}
+  .amenities-grid{grid-template-columns:1fr}
+  .gallery-mosaic{grid-template-columns:1fr;grid-template-rows:none}
+  .gal-item{aspect-ratio:16/9}
+  .proof-reviews{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">🎉 Special rates available — <a href="#booking-strip">Check availability now</a></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">
+      <div class="nav-brand-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22" fill="none" stroke="#fff" stroke-width="1.5"/></svg>
+      </div>
+      <div class="nav-brand-text">
+        <span class="nav-brand-name">Hotel Radiant</span>
+        <span class="nav-brand-sub">Park Circus · Kolkata</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#rooms-sec">Rooms</a></li>
+      <li><a href="#about-sec">About</a></li>
+      <li><a href="#amenities-sec">Amenities</a></li>
+      <li><a href="#gallery-sec">Gallery</a></li>
+      <li><a href="#location-sec">Location</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="tel:+917439551727" class="nav-phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +91 74395 51727
+      </a>
+      <a href="#booking-strip" class="btn-book-nav">Book Now →</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-head">
+    <span style="font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700">Hotel Radiant</span>
+    <button class="mobile-close" id="mobileClose">✕</button>
+  </div>
+  <nav class="mobile-nav-links">
+    <a href="#rooms-sec" onclick="closeMobile()">Rooms</a>
+    <a href="#about-sec" onclick="closeMobile()">About</a>
+    <a href="#amenities-sec" onclick="closeMobile()">Amenities</a>
+    <a href="#gallery-sec" onclick="closeMobile()">Gallery</a>
+    <a href="#location-sec" onclick="closeMobile()">Location</a>
+  </nav>
+  <a href="#booking-strip" class="mobile-cta" onclick="closeMobile()">Check Availability →</a>
+  <p style="margin-top:2rem;font-size:.9rem;color:var(--muted);text-align:center">📞 +91 74395 51727</p>
+</div>
+
+<!-- ══════════════════════════════════ HERO ══════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide active"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-dots">
+    <button class="hero-dot active" onclick="goSlide(0)" aria-label="Slide 1"></button>
+    <button class="hero-dot" onclick="goSlide(1)" aria-label="Slide 2"></button>
+    <button class="hero-dot" onclick="goSlide(2)" aria-label="Slide 3"></button>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-pills">
+      <span class="hero-pill-live"><span class="dot"></span>Rooms Available Now</span>
+      <span class="hero-pill-rating">⭐ 4.0 · 2,033 Reviews</span>
+    </div>
+    <h1 class="hero-title">Your home in<br>the heart of<br><em>Kolkata.</em></h1>
+    <p class="hero-subtitle">Centrally located in vibrant Park Circus — minutes from metro, heritage sites, and the city's best dining. Comfort, convenience, and genuine Bengali hospitality.</p>
+
+    <div class="hero-booking" id="booking-strip">
+      <div class="hb-top">
+        <div class="hb-field">
+          <label class="hb-label" for="ci">Check In</label>
+          <input type="date" class="hb-input" id="ci"/>
+        </div>
+        <div class="hb-field">
+          <label class="hb-label" for="co">Check Out</label>
+          <input type="date" class="hb-input" id="co"/>
+        </div>
+        <div class="hb-field">
+          <label class="hb-label" for="roomtype">Room Type</label>
+          <select class="hb-input" id="roomtype">
+            <option value="" disabled selected>Any Room</option>
+            <option>Standard Room</option>
+            <option>Deluxe Room</option>
+            <option>Super Deluxe</option>
+          </select>
+        </div>
+        <div class="hb-field">
+          <label class="hb-label" for="guests">Guests</label>
+          <select class="hb-input" id="guests">
+            <option>1 Guest</option>
+            <option selected>2 Guests</option>
+            <option>3 Guests</option>
+            <option>4+ Guests</option>
+          </select>
+        </div>
+        <button class="btn-hb" onclick="handleBooking()">
+          Check Availability
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+      <div class="hb-bottom">
+        <div class="hb-trust"><div class="hb-trust-check">✓</div>Best Rate Guaranteed</div>
+        <div class="hb-trust"><div class="hb-trust-check">✓</div>Free Cancellation</div>
+        <div class="hb-trust"><div class="hb-trust-check">✓</div>Instant Confirmation</div>
+        <div class="hb-trust"><div class="hb-trust-check">✓</div>No Booking Fees</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    Scroll to explore
+  </div>
+</section>
+
+<!-- ══════════════════════════════ FEATURES BAND ══════════════════════════════ -->
+<div class="features-band">
+  <div class="feat reveal">
+    <div class="feat-icon">📍</div>
+    <div class="feat-text"><strong>Prime Location</strong><span>Park Circus, central Kolkata</span></div>
+  </div>
+  <div class="feat reveal">
+    <div class="feat-icon">🕐</div>
+    <div class="feat-text"><strong>24/7 Front Desk</strong><span>Always here to help you</span></div>
+  </div>
+  <div class="feat reveal">
+    <div class="feat-icon">📶</div>
+    <div class="feat-text"><strong>Free Wi-Fi</strong><span>High-speed throughout</span></div>
+  </div>
+  <div class="feat reveal">
+    <div class="feat-icon">🛡️</div>
+    <div class="feat-text"><strong>Best Rate</strong><span>Guaranteed direct price</span></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ ROOMS ══════════════════════════════════ -->
+<div class="section-wrap" id="rooms-sec">
+  <div class="section-head reveal">
+    <div>
+      <span class="section-kicker">Accommodation</span>
+      <h2 class="section-title-lg">Rooms &amp; Suites</h2>
+    </div>
+    <a href="#booking-strip" class="see-all">View all rooms <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  </div>
+  <div class="rooms-grid">
+    <div class="room-card reveal">
+      <div class="room-img-wrap">
+        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=700&q=80" alt="Standard Room" class="room-img" loading="lazy"/>
+        <span class="room-badge avail">Available</span>
+      </div>
+      <div class="room-body">
+        <h3 class="room-name">Standard Room</h3>
+        <p class="room-desc">Comfortable and well-appointed, perfect for solo travellers and short business trips in the city.</p>
+        <div class="room-amenities">
+          <span class="room-tag">AC</span><span class="room-tag">Free Wi-Fi</span><span class="room-tag">TV</span><span class="room-tag">Hot Water</span>
+        </div>
+        <div class="room-footer">
+          <div class="room-price">
+            <span class="from">Starting from</span>
+            <span class="amount">₹1,200</span><span class="per"> /night</span>
+          </div>
+          <button class="btn-room" onclick="scrollToBook()">Book →</button>
+        </div>
+      </div>
+    </div>
+    <div class="room-card reveal">
+      <div class="room-img-wrap">
+        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=700&q=80" alt="Deluxe Room" class="room-img" loading="lazy"/>
+        <span class="room-badge popular">Most Popular</span>
+      </div>
+      <div class="room-body">
+        <h3 class="room-name">Deluxe Room</h3>
+        <p class="room-desc">Elevated comfort with more space, upgraded furnishings, and city-facing views for a premium stay.</p>
+        <div class="room-amenities">
+          <span class="room-tag">AC</span><span class="room-tag">Free Wi-Fi</span><span class="room-tag">TV</span><span class="room-tag">Mini Fridge</span>
+        </div>
+        <div class="room-footer">
+          <div class="room-price">
+            <span class="from">Starting from</span>
+            <span class="amount">₹1,800</span><span class="per"> /night</span>
+          </div>
+          <button class="btn-room" onclick="scrollToBook()">Book →</button>
+        </div>
+      </div>
+    </div>
+    <div class="room-card reveal">
+      <div class="room-img-wrap">
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=700&q=80" alt="Super Deluxe" class="room-img" loading="lazy"/>
+        <span class="room-badge">Premium</span>
+      </div>
+      <div class="room-body">
+        <h3 class="room-name">Super Deluxe</h3>
+        <p class="room-desc">Our finest rooms — expansive, richly furnished, ideal for couples and extended stays in Kolkata.</p>
+        <div class="room-amenities">
+          <span class="room-tag">AC</span><span class="room-tag">Free Wi-Fi</span><span class="room-tag">Smart TV</span><span class="room-tag">Bathtub</span>
+        </div>
+        <div class="room-footer">
+          <div class="room-price">
+            <span class="from">Starting from</span>
+            <span class="amount">₹2,500</span><span class="per"> /night</span>
+          </div>
+          <button class="btn-room" onclick="scrollToBook()">Book →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ ABOUT ══════════════════════════════════ -->
+<div class="about-section" id="about-sec">
+  <div class="about-grid">
+    <div class="about-imgs reveal-l">
+      <div class="about-img1">
+        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=900&q=80" alt="Hotel exterior" loading="lazy"/>
+      </div>
+      <div class="about-img2">
+        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&q=80" alt="Hotel view" loading="lazy"/>
+      </div>
+      <div class="about-img3">
+        <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=500&q=80" alt="Hotel dining" loading="lazy"/>
+      </div>
+      <div class="about-stat-card">
+        <div class="about-stat"><div class="num">4.0★</div><div class="lbl">Rating</div></div>
+        <div class="about-stat-div"></div>
+        <div class="about-stat"><div class="num">2K+</div><div class="lbl">Reviews</div></div>
+        <div class="about-stat-div"></div>
+        <div class="about-stat"><div class="num">24/7</div><div class="lbl">Service</div></div>
+      </div>
+    </div>
+    <div class="about-text reveal-r">
+      <span class="section-kicker">Our Story</span>
+      <h2>A trusted address in the City of Joy</h2>
+      <p>Nestled on Nasiruddin Road at the vibrant heart of Park Circus, Hotel Radiant has earned the trust of thousands of travellers seeking comfort, convenience, and genuine Kolkata hospitality.</p>
+      <p>Steps from the AJC Bose Road Flyover, we connect you instantly to the city's heritage, markets, and transport — while offering a calm, welcoming retreat at the end of the day.</p>
+      <div class="about-checks">
+        <div class="check-item">Prime central location</div>
+        <div class="check-item">24-hour reception</div>
+        <div class="check-item">Multi-cuisine dining</div>
+        <div class="check-item">Easy airport access</div>
+        <div class="check-item">Business-friendly</div>
+        <div class="check-item">Family welcome</div>
+      </div>
+      <a href="#booking-strip" class="btn-primary" style="margin-top:.5rem">
+        Book Your Stay
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ AMENITIES ══════════════════════════════════ -->
+<div class="amenities-section" id="amenities-sec">
+  <div class="amenities-inner">
+    <div class="amenities-head reveal">
+      <span class="section-kicker">Facilities</span>
+      <h2 class="section-title-lg">Everything you need</h2>
+      <p>Modern amenities to make your stay seamless from arrival to check-out.</p>
+    </div>
+    <div class="amenities-grid reveal">
+      <div class="am-item"><div class="am-emoji">📶</div><div class="am-name">Free High-Speed Wi-Fi</div><div class="am-desc">Seamless connectivity in every room &amp; common area</div></div>
+      <div class="am-item"><div class="am-emoji">❄️</div><div class="am-name">Air Conditioning</div><div class="am-desc">Individual climate control in all rooms</div></div>
+      <div class="am-item"><div class="am-emoji">📺</div><div class="am-name">Cable / Smart TV</div><div class="am-desc">Entertainment at your fingertips</div></div>
+      <div class="am-item"><div class="am-emoji">🍽️</div><div class="am-name">Restaurant</div><div class="am-desc">Bengali &amp; multi-cuisine in-house dining</div></div>
+      <div class="am-item"><div class="am-emoji">🛎️</div><div class="am-name">Room Service</div><div class="am-desc">In-room dining available on request</div></div>
+      <div class="am-item"><div class="am-emoji">🚗</div><div class="am-name">Parking</div><div class="am-desc">Vehicle parking facility on-site</div></div>
+      <div class="am-item"><div class="am-emoji">🔒</div><div class="am-name">Safe &amp; Secure</div><div class="am-desc">Round-the-clock security &amp; CCTV</div></div>
+      <div class="am-item"><div class="am-emoji">🧹</div><div class="am-name">Daily Housekeeping</div><div class="am-desc">Fresh rooms, every single day</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ SOCIAL PROOF ══════════════════════════════ -->
+<div class="proof-band">
+  <div class="proof-inner">
+    <div class="proof-big reveal-l">
+      <div class="num">4.0</div>
+      <div class="stars">★★★★☆</div>
+      <div class="sub">Based on 2,033 verified reviews<br>across Google &amp; booking platforms</div>
+      <a href="#booking-strip" class="btn-primary" style="margin-top:1.5rem;font-size:.88rem">Book Your Stay →</a>
+    </div>
+    <div class="proof-reviews reveal-r">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Centrally located and very convenient. Staff were helpful and the room was decent for the price."</p>
+        <div class="review-author">Rahul S.</div>
+        <div class="review-source">Mumbai · Google Review</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★☆</div>
+        <p class="review-text">"Great location for exploring Kolkata. The 24-hour front desk is a huge plus for late arrivals."</p>
+        <div class="review-author">Priya M.</div>
+        <div class="review-source">Delhi · Google Review</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★☆</div>
+        <p class="review-text">"Solid base to explore the city. Near the flyover so commuting is incredibly easy. Good value."</p>
+        <div class="review-author">Arun K.</div>
+        <div class="review-source">Bangalore · Booking.com</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ GALLERY ══════════════════════════════════ -->
+<div class="section-wrap" id="gallery-sec">
+  <div class="section-head reveal">
+    <div>
+      <span class="section-kicker">Gallery</span>
+      <h2 class="section-title-lg">See your next stay</h2>
+    </div>
+  </div>
+  <div class="gallery-mosaic reveal">
+    <div class="gal-item gal-row2">
+      <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600&q=80" alt="Room" loading="lazy"/>
+    </div>
+    <div class="gal-item gal-span2">
+      <img src="https://images.unsplash.com/photo-1562778612-e1e0cda9915c?w=900&q=80" alt="Hotel" loading="lazy"/>
+    </div>
+    <div class="gal-item">
+      <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&q=80" alt="Pool" loading="lazy"/>
+    </div>
+    <div class="gal-item">
+      <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=500&q=80" alt="Dining" loading="lazy"/>
+    </div>
+    <div class="gal-item">
+      <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&q=80" alt="View" loading="lazy"/>
+    </div>
+    <div class="gal-item">
+      <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=500&q=80" alt="Lobby" loading="lazy"/>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ LOCATION ══════════════════════════════════ -->
+<div class="section-wrap" id="location-sec">
+  <div class="section-head reveal">
+    <div>
+      <span class="section-kicker">Location</span>
+      <h2 class="section-title-lg">Find us in Park Circus</h2>
+    </div>
+  </div>
+  <div class="location-grid">
+    <div class="location-card reveal-l">
+      <div class="location-map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d920!2d88.3631601!3d22.5415748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0276e02285468f%3A0x918523bb7429fa2b!2sHotel+Radiant+(Kolkata)!5e0!3m2!1sen!2sin!4v1700000000000"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Hotel Radiant map">
+        </iframe>
+      </div>
+      <div class="location-details">
+        <div class="location-address">
+          <span class="icon">📍</span>
+          Nasiruddin Road, AJC Bose Road Flyover, Lower Range, Park Circus, Kolkata — 700017
+        </div>
+        <div class="location-nearby">
+          <h4>Nearby Landmarks</h4>
+          <div class="nearby-item"><span class="nearby-name">🚇 Park Circus Metro</span><span class="nearby-dist">5 min</span></div>
+          <div class="nearby-item"><span class="nearby-name">🚉 Howrah Station</span><span class="nearby-dist">15 min</span></div>
+          <div class="nearby-item"><span class="nearby-name">🚉 Sealdah Station</span><span class="nearby-dist">20 min</span></div>
+          <div class="nearby-item"><span class="nearby-name">✈️ Netaji Airport</span><span class="nearby-dist">30 min</span></div>
+          <div class="nearby-item"><span class="nearby-name">🏛️ Victoria Memorial</span><span class="nearby-dist">10 min</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="location-info-right reveal-r">
+      <h3>In the beating heart of Kolkata</h3>
+      <p>Park Circus is one of Kolkata's most well-connected neighbourhoods — a cultural crossroads that puts you minutes from heritage sites, railway stations, business districts, and the city's best dining.</p>
+      <p>Whether you're here for business, tourism, or family — Hotel Radiant is your most convenient base.</p>
+      <div class="contact-cards">
+        <a href="tel:+917439551727" class="contact-card">
+          <div class="cc-icon">📞</div>
+          <div class="cc-text"><div class="lbl">Call Us</div><div class="val">+91 74395 51727</div></div>
+        </a>
+        <a href="mailto:stay@hotelradiantkolkata.com" class="contact-card">
+          <div class="cc-icon">✉️</div>
+          <div class="cc-text"><div class="lbl">Email Us</div><div class="val">stay@hotelradiantkolkata.com</div></div>
+        </a>
+        <a href="https://maps.app.goo.gl/Y2f3vAV6PjLRxQmMA" target="_blank" rel="noopener" class="contact-card">
+          <div class="cc-icon">🗺️</div>
+          <div class="cc-text"><div class="lbl">Get Directions</div><div class="val">Open in Google Maps</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ FINAL CTA ══════════════════════════════════ -->
+<div class="final-cta">
+  <div class="final-inner">
+    <span class="final-kicker reveal">Best Rate Direct</span>
+    <h2 class="final-title reveal">Ready for your<br><em>Kolkata story?</em></h2>
+    <p class="final-sub reveal">Book directly for the best rates, free cancellation, and personal service from our team.</p>
+    <div class="final-btns reveal">
+      <a href="#booking-strip" class="btn-final">Reserve Your Room →</a>
+      <a href="tel:+917439551727" class="btn-final-ghost">📞 Call Us Directly</a>
+    </div>
+    <p class="final-note reveal">
+      <span>✓ Free cancellation</span> &nbsp;·&nbsp;
+      <span>✓ Best rate guaranteed</span> &nbsp;·&nbsp;
+      <span>✓ Instant confirmation</span>
+    </p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ FOOTER ══════════════════════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-text">Hotel Radiant</div>
+      <p class="footer-brand-desc" style="margin-top:.5rem">Your home in the heart of Kolkata. Located in vibrant Park Circus, we offer comfort, connectivity, and genuine Bengali hospitality.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#rooms-sec">Rooms</a></li>
+        <li><a href="#amenities-sec">Amenities</a></li>
+        <li><a href="#gallery-sec">Gallery</a></li>
+        <li><a href="#about-sec">About</a></li>
+        <li><a href="#location-sec">Location</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#booking-strip">Book Now</a></li>
+        <li><a href="tel:+917439551727">Call Us</a></li>
+        <li><a href="https://maps.app.goo.gl/Y2f3vAV6PjLRxQmMA" target="_blank" rel="noopener">Directions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item"><span class="ic">📍</span>Nasiruddin Road, Park Circus, Kolkata 700017</div>
+      <div class="footer-contact-item"><span class="ic">📞</span>+91 74395 51727</div>
+      <div class="footer-contact-item"><span class="ic">✉️</span>stay@hotelradiantkolkata.com</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Hotel Radiant, Kolkata. All rights reserved.</span>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+      <a href="#">Cancellation</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Set default dates ──
+(function(){
+  var today = new Date(), tom = new Date(today);
+  tom.setDate(tom.getDate() + 1);
+  var fmt = function(d){ return d.toISOString().split('T')[0]; };
+  var ci = document.getElementById('ci');
+  var co = document.getElementById('co');
+  if(ci) ci.value = fmt(today);
+  if(co) co.value = fmt(tom);
+})();
+
+// ── Nav elevate on scroll ──
+var navEl = document.getElementById('nav');
+window.addEventListener('scroll', function(){
+  navEl.classList.toggle('elevated', window.scrollY > 10);
+});
+
+// ── Hero slideshow ──
+var cur = 0;
+var slides = document.querySelectorAll('.hero-slide');
+var dots   = document.querySelectorAll('.hero-dot');
+function goSlide(n){
+  slides[cur].classList.remove('active');
+  dots[cur].classList.remove('active');
+  cur = n;
+  slides[cur].classList.add('active');
+  dots[cur].classList.add('active');
+}
+setInterval(function(){ goSlide((cur + 1) % slides.length); }, 5000);
+
+// ── Mobile menu ──
+var ham    = document.getElementById('hamburger');
+var mmenu  = document.getElementById('mobileMenu');
+var mcls   = document.getElementById('mobileClose');
+ham.addEventListener('click',  function(){ mmenu.classList.add('open'); });
+mcls.addEventListener('click', function(){ mmenu.classList.remove('open'); });
+function closeMobile(){ mmenu.classList.remove('open'); }
+
+// ── Scroll reveal ──
+var revealObs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e, i){
+    if(e.isIntersecting){
+      setTimeout(function(){ e.target.classList.add('in'); }, i * 80);
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(function(el){
+  revealObs.observe(el);
+});
+
+// ── Scroll to booking ──
+function scrollToBook(){
+  document.getElementById('booking-strip').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ── Handle booking button ──
+function handleBooking(){
+  var ci = document.getElementById('ci').value;
+  var co = document.getElementById('co').value;
+  if(!ci || !co){
+    alert('Please select your check-in and check-out dates.');
+    return;
+  }
+  if(new Date(co) <= new Date(ci)){
+    alert('Check-out date must be after your check-in date.');
+    return;
+  }
+  alert('Thank you for choosing Hotel Radiant!\n\nFor instant confirmation, please call:\n+91 74395 51727\n\nOr email: stay@hotelradiantkolkata.com');
+}
+</script>
+</body>
+</html>
