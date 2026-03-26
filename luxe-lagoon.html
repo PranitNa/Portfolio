@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LUXE LAGOON — Luxury Boutique Stay, New Town Kolkata</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --teal:#0D5C63;--teal2:#0A4A50;--teal3:#073840;
+  --aqua:#1A8C96;--aqua2:#22B5C2;
+  --gold:#C9A96E;--gold2:#E8CC9A;--gold3:#F5E6C8;
+  --cream:#FDFAF4;--ivory:#F7F2E8;--white:#FFFFFF;
+  --ink:#0A1628;--ink2:#1E2D3D;--muted:#5A6B7A;--soft:#A0ADB8;
+  --border:#E4DDD0;--border2:#D5C9B5;
+  --success:#22C55E;
+  --r:16px;--r-sm:10px;--r-xs:6px;
+  --sh:0 4px 32px rgba(10,22,40,.08);
+  --sh-lg:0 20px 80px rgba(10,22,40,.16);
+  --sh-teal:0 8px 40px rgba(13,92,99,.25);
+}
+*,::before,::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--cream)}
+::-webkit-scrollbar-thumb{background:var(--teal);border-radius:99px}
+
+/* ────────────────────────────────────────────────────────────────
+   TOPBAR
+───────────────────────────────────────────────────────────────── */
+.topbar{
+  background:var(--teal3);color:var(--gold2);
+  text-align:center;padding:.52rem 1rem;
+  font-size:.75rem;font-weight:500;letter-spacing:.06em;
+  text-transform:uppercase;position:relative;z-index:300
+}
+.topbar strong{color:#fff;font-weight:700}
+
+/* ────────────────────────────────────────────────────────────────
+   NAV
+───────────────────────────────────────────────────────────────── */
+#nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(253,250,244,.96);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  transition:box-shadow .3s
+}
+#nav.up{box-shadow:var(--sh)}
+.nav-wrap{max-width:1320px;margin:0 auto;padding:0 2.5rem;height:72px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.brand{display:flex;align-items:center;gap:.85rem;text-decoration:none}
+.brand-mark{
+  width:40px;height:40px;border-radius:var(--r-sm);
+  background:linear-gradient(135deg,var(--teal),var(--aqua));
+  display:flex;align-items:center;justify-content:center;flex-shrink:0
+}
+.brand-mark svg{fill:#fff}
+.brand-copy{}
+.brand-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--teal3);display:block;line-height:1.1}
+.brand-sub{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;margin-top:.1rem}
+.nav-links{display:flex;align-items:center;gap:.15rem;list-style:none}
+.nav-links a{font-size:.86rem;font-weight:500;color:var(--muted);text-decoration:none;padding:.5rem .9rem;border-radius:var(--r-xs);transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--teal);background:rgba(13,92,99,.06)}
+.nav-right{display:flex;align-items:center;gap:.8rem}
+.nav-tel{display:flex;align-items:center;gap:.45rem;font-size:.84rem;font-weight:600;color:var(--teal3);text-decoration:none;padding:.48rem .95rem;border:1.5px solid var(--border2);border-radius:99px;transition:all .2s}
+.nav-tel:hover{border-color:var(--teal);background:rgba(13,92,99,.05)}
+.nav-book{
+  background:linear-gradient(135deg,var(--teal),var(--aqua));
+  color:#fff;font-size:.86rem;font-weight:700;
+  border:none;border-radius:99px;padding:.58rem 1.5rem;
+  cursor:pointer;text-decoration:none;
+  transition:opacity .2s,transform .15s,box-shadow .2s;
+  display:inline-block;white-space:nowrap
+}
+.nav-book:hover{opacity:.9;transform:translateY(-1px);box-shadow:var(--sh-teal)}
+.ham{display:none;background:none;border:none;cursor:pointer;padding:.35rem;flex-direction:column;gap:5px}
+.ham span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+
+/* ────────────────────────────────────────────────────────────────
+   MOBILE MENU
+───────────────────────────────────────────────────────────────── */
+.mob-menu{display:none;position:fixed;inset:0;background:var(--white);z-index:400;flex-direction:column;padding:2rem 2rem 3rem}
+.mob-menu.open{display:flex}
+.mob-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:3rem}
+.mob-close{background:var(--ivory);border:none;width:40px;height:40px;border-radius:50%;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink)}
+.mob-links{display:flex;flex-direction:column;flex:1}
+.mob-links a{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--ink);text-decoration:none;padding:.65rem 0;border-bottom:1px solid var(--border);transition:color .2s}
+.mob-links a:hover{color:var(--teal)}
+.mob-book{
+  background:linear-gradient(135deg,var(--teal),var(--aqua));
+  color:#fff;font-size:1rem;font-weight:700;
+  border:none;border-radius:var(--r-sm);padding:1rem;
+  text-decoration:none;display:block;text-align:center;
+  margin-top:2rem
+}
+
+/* ────────────────────────────────────────────────────────────────
+   HERO
+───────────────────────────────────────────────────────────────── */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden}
+
+/* Slideshow */
+.slides{position:absolute;inset:0;z-index:0}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease}
+.slide.on{opacity:1;animation:kb 9s ease-in-out forwards}
+.slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1800&q=85')}
+.slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1800&q=85')}
+.slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1800&q=85')}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.07)}}
+
+/* Gradient overlay */
+.hero-ov{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(to top,rgba(3,22,26,.98) 0%,rgba(3,22,26,.7) 32%,rgba(3,22,26,.25) 62%,rgba(3,22,26,.05) 100%),
+    linear-gradient(110deg,rgba(3,22,26,.55) 0%,transparent 55%)
+}
+
+/* Teal diagonal accent strip */
+.hero-strip{
+  position:absolute;bottom:0;left:0;right:0;z-index:2;
+  height:6px;
+  background:linear-gradient(90deg,var(--teal3),var(--aqua),var(--gold),var(--aqua),var(--teal3))
+}
+
+/* Slide indicators */
+.slide-indicators{position:absolute;right:2.5rem;top:50%;transform:translateY(-50%);z-index:10;display:flex;flex-direction:column;gap:.6rem}
+.si{width:2px;height:28px;background:rgba(255,255,255,.25);border:none;cursor:pointer;padding:0;border-radius:2px;transition:background .3s,height .3s}
+.si.on{height:44px;background:var(--gold)}
+
+/* Hero content */
+.hero-body{position:relative;z-index:5;flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:0 6vw 3.5rem}
+
+.hero-tag{display:inline-flex;align-items:center;gap:.55rem;margin-bottom:2rem;animation:up .8s .2s both}
+.hero-tag-live{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.1);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:.38rem 1rem;font-size:.72rem;font-weight:600;color:#fff;letter-spacing:.04em}
+.hero-tag-live .pulse{width:7px;height:7px;background:var(--success);border-radius:50%;box-shadow:0 0 0 3px rgba(34,197,94,.3);animation:pls 2s infinite}
+.hero-tag-rating{display:inline-flex;align-items:center;gap:.4rem;background:rgba(201,169,110,.2);backdrop-filter:blur(10px);border:1px solid rgba(201,169,110,.35);border-radius:99px;padding:.38rem 1rem;font-size:.72rem;font-weight:700;color:var(--gold2)}
+
+.hero-h{font-family:'Playfair Display',serif;font-size:clamp(3.2rem,7.5vw,7rem);font-weight:900;line-height:.97;letter-spacing:-.03em;color:#fff;margin-bottom:1.2rem;animation:up .9s .3s both;max-width:860px}
+.hero-h em{font-style:italic;color:var(--gold2)}
+.hero-p{font-size:clamp(.95rem,1.5vw,1.12rem);color:rgba(255,255,255,.6);font-weight:300;line-height:1.7;max-width:500px;margin-bottom:3rem;animation:up .9s .45s both}
+
+/* Booking card */
+.hero-book{
+  width:100%;max-width:980px;
+  background:rgba(255,255,255,.09);
+  backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:var(--r);
+  padding:1.6rem 2rem;
+  animation:up .9s .6s both
+}
+.hb-row{display:grid;grid-template-columns:1fr 1fr 1fr 1fr auto;gap:1rem;align-items:end}
+.hb-f{display:flex;flex-direction:column;gap:.38rem}
+.hb-l{font-size:.63rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.hb-i{
+  background:rgba(255,255,255,.08);
+  border:1.5px solid rgba(255,255,255,.14);
+  border-radius:var(--r-sm);
+  padding:.8rem 1rem;color:#fff;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.9rem;
+  width:100%;outline:none;
+  transition:border-color .2s,background .2s;
+  appearance:none;-webkit-appearance:none
+}
+.hb-i:focus{border-color:var(--gold);background:rgba(255,255,255,.13)}
+.hb-i option{background:#0D3338;color:#fff}
+.hb-i::placeholder{color:rgba(255,255,255,.28)}
+.hb-i[type=date]::-webkit-calendar-picker-indicator{filter:invert(1);opacity:.5;cursor:pointer}
+.hb-btn{
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:.9rem;font-weight:800;
+  border:none;border-radius:var(--r-sm);
+  padding:.82rem 1.8rem;cursor:pointer;white-space:nowrap;
+  transition:opacity .2s,transform .15s,box-shadow .2s;
+  display:flex;align-items:center;gap:.5rem;align-self:flex-end
+}
+.hb-btn:hover{opacity:.9;transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,169,110,.4)}
+.hb-trust{display:flex;align-items:center;gap:1.6rem;margin-top:1rem;flex-wrap:wrap}
+.hb-t{display:flex;align-items:center;gap:.45rem;font-size:.72rem;color:rgba(255,255,255,.45);font-weight:500}
+.hb-t-ic{width:15px;height:15px;border-radius:50%;background:rgba(34,197,94,.18);border:1px solid rgba(34,197,94,.36);display:flex;align-items:center;justify-content:center;font-size:.5rem;color:var(--success);flex-shrink:0}
+
+/* Scroll hint */
+.hero-sc{position:absolute;bottom:3.5rem;right:6vw;z-index:5;display:flex;align-items:center;gap:.65rem;color:rgba(255,255,255,.35);font-size:.67rem;letter-spacing:.2em;text-transform:uppercase;animation:up .8s 1.3s both}
+.hero-sc-l{width:36px;height:1px;background:linear-gradient(to right,rgba(255,255,255,.35),transparent)}
+
+@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pls{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
+
+/* ────────────────────────────────────────────────────────────────
+   STATS BAR
+───────────────────────────────────────────────────────────────── */
+.stats-bar{background:var(--teal3)}
+.stats-inner{max-width:1320px;margin:0 auto;padding:0 2.5rem;display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid rgba(255,255,255,.08)}
+.stat-item{padding:1.8rem 1.5rem;border-right:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:1rem}
+.stat-ic{font-size:1.5rem;flex-shrink:0}
+.stat-num{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#fff;display:block;line-height:1}
+.stat-lbl{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:.2rem;display:block}
+
+/* ────────────────────────────────────────────────────────────────
+   SECTION UTILS
+───────────────────────────────────────────────────────────────── */
+.sec{padding:6rem 2.5rem}
+.sec-c{max-width:1320px;margin:0 auto}
+.kicker{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--aqua);display:block;margin-bottom:.6rem}
+.sec-h{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:700;color:var(--ink);line-height:1.15;letter-spacing:-.02em}
+.sec-h em{font-style:italic;color:var(--teal)}
+.sec-p{font-size:1rem;line-height:1.75;color:var(--muted);font-weight:300;max-width:560px}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;gap:2rem;flex-wrap:wrap}
+.see-more{font-size:.85rem;font-weight:600;color:var(--teal);text-decoration:none;display:flex;align-items:center;gap:.35rem;white-space:nowrap;transition:gap .2s}
+.see-more:hover{gap:.6rem}
+
+/* ────────────────────────────────────────────────────────────────
+   ROOMS
+───────────────────────────────────────────────────────────────── */
+.rooms-sec{background:var(--cream)}
+.rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.room-card{background:var(--white);border-radius:var(--r);overflow:hidden;border:1px solid var(--border);transition:transform .3s,box-shadow .35s}
+.room-card:hover{transform:translateY(-5px);box-shadow:var(--sh-lg)}
+.ri-wrap{position:relative;overflow:hidden}
+.ri{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .55s cubic-bezier(.22,1,.36,1)}
+.room-card:hover .ri{transform:scale(1.06)}
+.r-badge{position:absolute;top:1rem;left:1rem;font-size:.67rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.3rem .8rem;border-radius:99px}
+.r-badge.hot{background:var(--teal);color:#fff}
+.r-badge.pop{background:var(--gold);color:var(--ink)}
+.r-badge.new{background:var(--ink);color:#fff}
+.r-price-badge{position:absolute;bottom:1rem;right:1rem;background:rgba(3,22,26,.85);backdrop-filter:blur(12px);border-radius:var(--r-xs);padding:.5rem .85rem;border:1px solid rgba(255,255,255,.12)}
+.r-price-badge .from{font-size:.6rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;display:block}
+.r-price-badge .amt{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff}
+.r-price-badge .per{font-size:.65rem;color:rgba(255,255,255,.5)}
+.r-body{padding:1.5rem}
+.r-name{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--ink);margin-bottom:.4rem}
+.r-desc{font-size:.85rem;color:var(--muted);line-height:1.6;margin-bottom:1.1rem}
+.r-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.3rem}
+.r-tag{background:var(--ivory);color:var(--muted);font-size:.7rem;font-weight:600;padding:.22rem .65rem;border-radius:99px;border:1px solid var(--border)}
+.r-foot{display:flex;align-items:center;justify-content:space-between;padding-top:1.1rem;border-top:1px solid var(--border)}
+.r-inclusions{font-size:.75rem;color:var(--muted);display:flex;align-items:center;gap:.35rem}
+.r-inclusions::before{content:'✓';color:var(--success);font-weight:700}
+.btn-r{background:var(--teal);color:#fff;font-size:.82rem;font-weight:700;border:none;border-radius:var(--r-sm);padding:.6rem 1.3rem;cursor:pointer;transition:background .2s,transform .15s}
+.btn-r:hover{background:var(--aqua);transform:translateY(-1px)}
+
+/* ────────────────────────────────────────────────────────────────
+   EXPERIENCE (ABOUT)
+───────────────────────────────────────────────────────────────── */
+.exp-sec{background:var(--white)}
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.exp-media{position:relative}
+.exp-img-main{border-radius:var(--r);overflow:hidden;aspect-ratio:3/4}
+.exp-img-main img{width:100%;height:100%;object-fit:cover}
+.exp-img-float{position:absolute;bottom:-2rem;right:-2.5rem;width:58%;border-radius:var(--r);overflow:hidden;aspect-ratio:1;border:4px solid var(--white);box-shadow:var(--sh-lg)}
+.exp-img-float img{width:100%;height:100%;object-fit:cover}
+.exp-numbers{position:absolute;top:2rem;left:-2rem;background:linear-gradient(135deg,var(--teal3),var(--teal));border-radius:var(--r);padding:1.4rem 1.6rem;box-shadow:var(--sh-teal);display:flex;gap:1.4rem}
+.exp-n{text-align:center}
+.exp-n .v{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:#fff;display:block;line-height:1}
+.exp-n .l{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:.2rem;display:block}
+.exp-n-div{width:1px;background:rgba(255,255,255,.15)}
+.exp-text .kicker{margin-bottom:.5rem}
+.exp-text h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:700;color:var(--ink);line-height:1.18;letter-spacing:-.02em;margin-bottom:1.3rem}
+.exp-text h2 em{font-style:italic;color:var(--teal)}
+.exp-text p{font-size:1rem;line-height:1.78;color:var(--muted);font-weight:300;margin-bottom:1rem}
+.exp-ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:1.8rem 0}
+.exp-ul li{display:flex;align-items:center;gap:.65rem;font-size:.88rem;color:var(--ink);font-weight:500}
+.exp-ul li::before{content:'';width:18px;height:18px;background:linear-gradient(135deg,var(--teal),var(--aqua));border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6l3 3 5-5' stroke='white' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-size:10px;background-repeat:no-repeat;background-position:center}
+.btn-p{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--teal3);color:#fff;
+  font-size:.92rem;font-weight:700;
+  border:none;border-radius:var(--r-sm);
+  padding:.85rem 2rem;cursor:pointer;text-decoration:none;
+  transition:background .2s,transform .15s,box-shadow .2s
+}
+.btn-p:hover{background:var(--teal);transform:translateY(-2px);box-shadow:var(--sh-teal)}
+.btn-g{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:transparent;color:var(--ink);
+  font-size:.92rem;font-weight:600;
+  border:1.5px solid var(--border2);border-radius:var(--r-sm);
+  padding:.85rem 2rem;cursor:pointer;text-decoration:none;
+  transition:border-color .2s,background .2s
+}
+.btn-g:hover{border-color:var(--teal);background:rgba(13,92,99,.04)}
+
+/* ────────────────────────────────────────────────────────────────
+   AMENITIES
+───────────────────────────────────────────────────────────────── */
+.am-sec{
+  background:linear-gradient(135deg,var(--teal3) 0%,var(--teal2) 50%,var(--teal3) 100%);
+  position:relative;overflow:hidden
+}
+.am-sec::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 80% 20%,rgba(34,181,194,.12) 0%,transparent 60%),
+             radial-gradient(ellipse at 20% 80%,rgba(201,169,110,.08) 0%,transparent 50%);
+  pointer-events:none
+}
+.am-inner{max-width:1320px;margin:0 auto;padding:6rem 2.5rem;position:relative}
+.am-top{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:4rem}
+.am-top .kicker{color:var(--gold)}
+.am-top .sec-h{color:#fff}
+.am-top .sec-p{color:rgba(255,255,255,.55);max-width:none}
+.am-cta a{margin-top:1.5rem;display:inline-flex}
+.am-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.07);border-radius:var(--r);overflow:hidden}
+.am-item{background:rgba(255,255,255,.03);padding:2rem 1.6rem;transition:background .3s;cursor:default}
+.am-item:hover{background:rgba(34,181,194,.1)}
+.am-em{font-size:2rem;margin-bottom:.9rem;display:block}
+.am-n{font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.35rem}
+.am-d{font-size:.78rem;color:rgba(255,255,255,.45);line-height:1.55}
+
+/* ────────────────────────────────────────────────────────────────
+   GALLERY
+───────────────────────────────────────────────────────────────── */
+.gal-sec{background:var(--cream)}
+.gal-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:240px 240px;gap:.75rem}
+.gi{border-radius:var(--r);overflow:hidden;position:relative;cursor:pointer}
+.gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s cubic-bezier(.22,1,.36,1);filter:brightness(.88)}
+.gi:hover img{transform:scale(1.07);filter:brightness(1)}
+.gi::after{content:'↗';position:absolute;top:1rem;right:1rem;width:32px;height:32px;background:rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;opacity:0;transition:opacity .3s}
+.gi:hover::after{opacity:1}
+.gi:nth-child(1){grid-column:1/6;grid-row:1/3}
+.gi:nth-child(2){grid-column:6/10;grid-row:1/2}
+.gi:nth-child(3){grid-column:10/13;grid-row:1/2}
+.gi:nth-child(4){grid-column:6/9;grid-row:2/3}
+.gi:nth-child(5){grid-column:9/13;grid-row:2/3}
+
+/* ────────────────────────────────────────────────────────────────
+   REVIEWS
+───────────────────────────────────────────────────────────────── */
+.rev-sec{background:var(--ivory)}
+.rev-hero{display:grid;grid-template-columns:300px 1fr;gap:5rem;align-items:start}
+.rev-score{
+  background:linear-gradient(135deg,var(--teal3),var(--teal2));
+  border-radius:var(--r);padding:2.5rem 2rem;text-align:center;
+  position:sticky;top:6rem;box-shadow:var(--sh-teal)
+}
+.rs-num{font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:900;color:#fff;line-height:1;display:block}
+.rs-stars{color:var(--gold);font-size:1.3rem;margin:.4rem 0;display:block}
+.rs-lbl{font-size:.78rem;color:rgba(255,255,255,.5);letter-spacing:.08em;display:block;margin-bottom:1.5rem}
+.rs-bar-wrap{display:flex;flex-direction:column;gap:.5rem}
+.rs-bar{display:flex;align-items:center;gap:.7rem;font-size:.75rem;color:rgba(255,255,255,.6)}
+.rs-bar-track{flex:1;height:5px;background:rgba(255,255,255,.12);border-radius:99px;overflow:hidden}
+.rs-bar-fill{height:100%;background:var(--gold);border-radius:99px}
+.rev-cards{display:flex;flex-direction:column;gap:1.25rem}
+.rev-card{background:var(--white);border-radius:var(--r);padding:1.75rem;border:1px solid var(--border);transition:transform .3s,box-shadow .3s}
+.rev-card:hover{transform:translateY(-3px);box-shadow:var(--sh)}
+.rc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem}
+.rc-author{display:flex;align-items:center;gap:.85rem}
+.rc-av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--aqua));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;flex-shrink:0}
+.rc-name{font-size:.9rem;font-weight:700;color:var(--ink);display:block}
+.rc-src{font-size:.72rem;color:var(--soft);margin-top:.1rem;display:block}
+.rc-stars{color:var(--gold);font-size:.85rem}
+.rc-text{font-size:.92rem;line-height:1.7;color:var(--ink2);font-style:italic}
+.rc-text::before{content:'"';font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--teal);line-height:0;vertical-align:-.5rem;margin-right:.1rem}
+
+/* ────────────────────────────────────────────────────────────────
+   LOCATION
+───────────────────────────────────────────────────────────────── */
+.loc-sec{background:var(--white)}
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+.loc-map-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh)}
+.loc-map-frame{height:360px}
+.loc-map-frame iframe{width:100%;height:100%;border:none;display:block}
+.loc-map-info{padding:1.5rem}
+.loc-addr{display:flex;gap:.75rem;align-items:flex-start;padding-bottom:1.2rem;border-bottom:1px solid var(--border);margin-bottom:1.2rem;font-size:.9rem;color:var(--muted);line-height:1.65}
+.loc-addr .ic{font-size:1.1rem;flex-shrink:0;margin-top:.1rem}
+.loc-tags h4{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--soft);margin-bottom:.85rem}
+.loc-tag-row{display:flex;align-items:center;justify-content:space-between;padding:.52rem 0;border-bottom:1px solid var(--border);font-size:.87rem}
+.loc-tag-row:last-child{border-bottom:none}
+.loc-tn{color:var(--ink);font-weight:500;display:flex;align-items:center;gap:.5rem}
+.loc-td{background:rgba(13,92,99,.1);color:var(--teal);font-size:.78rem;font-weight:700;padding:.2rem .65rem;border-radius:99px}
+.loc-right h3{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--ink);margin-bottom:1rem;line-height:1.2}
+.loc-right p{font-size:.95rem;line-height:1.75;color:var(--muted);margin-bottom:1.8rem;font-weight:300}
+.contact-stack{display:flex;flex-direction:column;gap:.75rem}
+.cc{display:flex;align-items:center;gap:1rem;background:var(--ivory);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:1rem 1.3rem;text-decoration:none;transition:border-color .2s,box-shadow .2s,background .2s}
+.cc:hover{border-color:var(--teal);box-shadow:0 4px 20px rgba(13,92,99,.1);background:var(--white)}
+.cc-ic{width:40px;height:40px;background:linear-gradient(135deg,var(--teal3),var(--teal));border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.cc-lbl{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:600;display:block}
+.cc-val{font-size:.95rem;font-weight:700;color:var(--ink);margin-top:.1rem;display:block}
+
+/* ────────────────────────────────────────────────────────────────
+   FINAL CTA
+───────────────────────────────────────────────────────────────── */
+.cta-sec{
+  background:var(--teal3);
+  position:relative;overflow:hidden;
+  padding:7rem 2.5rem
+}
+.cta-sec::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 70% 50%,rgba(34,181,194,.15) 0%,transparent 60%),
+    radial-gradient(ellipse at 20% 80%,rgba(201,169,110,.1) 0%,transparent 50%)
+}
+.cta-inner{max-width:780px;margin:0 auto;text-align:center;position:relative}
+.cta-k{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);display:block;margin-bottom:1rem}
+.cta-h{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5.5vw,4.2rem);font-weight:900;color:#fff;line-height:1.05;letter-spacing:-.03em;margin-bottom:1.2rem}
+.cta-h em{font-style:italic;color:var(--gold2)}
+.cta-p{font-size:1.05rem;color:rgba(255,255,255,.55);font-weight:300;max-width:520px;margin:0 auto 3rem;line-height:1.7}
+.cta-btns{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
+.btn-gold{
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:var(--ink);font-size:1rem;font-weight:800;
+  border:none;border-radius:var(--r-sm);
+  padding:1rem 2.6rem;cursor:pointer;text-decoration:none;
+  transition:opacity .2s,transform .15s,box-shadow .2s;display:inline-block
+}
+.btn-gold:hover{opacity:.92;transform:translateY(-2px);box-shadow:0 10px 40px rgba(201,169,110,.4)}
+.btn-wh{
+  background:transparent;color:rgba(255,255,255,.85);
+  font-size:1rem;font-weight:600;
+  border:1.5px solid rgba(255,255,255,.2);border-radius:var(--r-sm);
+  padding:1rem 2.6rem;cursor:pointer;text-decoration:none;
+  transition:border-color .2s;display:inline-block
+}
+.btn-wh:hover{border-color:rgba(255,255,255,.5)}
+.cta-trust{display:flex;align-items:center;justify-content:center;gap:2rem;margin-top:2rem;flex-wrap:wrap}
+.ct{font-size:.75rem;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:.4rem}
+.ct::before{content:'✓';color:var(--success);font-weight:700}
+
+/* ────────────────────────────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────────────────────────── */
+footer{background:#050E12;border-top:1px solid rgba(255,255,255,.05)}
+.ft-top{max-width:1320px;margin:0 auto;padding:4rem 2.5rem 3rem;display:grid;grid-template-columns:2.2fr 1fr 1fr 1.6fr;gap:3.5rem}
+.ft-brand-name{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;display:block;margin-bottom:.4rem}
+.ft-brand-desc{font-size:.84rem;line-height:1.7;color:rgba(255,255,255,.3);font-weight:300;margin-top:.5rem}
+.ft-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,169,110,.12);border:1px solid rgba(201,169,110,.2);border-radius:99px;padding:.35rem .85rem;font-size:.72rem;font-weight:600;color:var(--gold2);margin-top:1rem}
+.ft-col h4{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.28);margin-bottom:1.1rem}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.ft-col a{font-size:.87rem;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
+.ft-col a:hover{color:#fff}
+.ft-ci{display:flex;align-items:center;gap:.65rem;font-size:.85rem;color:rgba(255,255,255,.4);margin-bottom:.75rem}
+.ft-ci .i{font-size:1rem}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.05);padding:1.3rem 2.5rem;max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.ft-copy{font-size:.75rem;color:rgba(255,255,255,.2)}
+.ft-legal{display:flex;gap:1.5rem}
+.ft-legal a{font-size:.75rem;color:rgba(255,255,255,.2);text-decoration:none;transition:color .2s}
+.ft-legal a:hover{color:rgba(255,255,255,.55)}
+
+/* ────────────────────────────────────────────────────────────────
+   REVEAL ANIMATIONS
+───────────────────────────────────────────────────────────────── */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+.rv-l{opacity:0;transform:translateX(-22px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
+.rv-l.in{opacity:1;transform:none}
+.rv-r{opacity:0;transform:translateX(22px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
+.rv-r.in{opacity:1;transform:none}
+
+/* ────────────────────────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────────────────────────── */
+@media(max-width:1100px){
+  .rooms-grid{grid-template-columns:1fr 1fr}
+  .exp-grid{grid-template-columns:1fr;gap:3rem}
+  .exp-img-float{right:-1rem;bottom:-1rem}
+  .exp-numbers{left:-1rem}
+  .am-top{grid-template-columns:1fr}
+  .am-grid{grid-template-columns:repeat(2,1fr)}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .gi:nth-child(n){grid-column:auto;grid-row:auto;aspect-ratio:4/3}
+  .rev-hero{grid-template-columns:1fr}
+  .rev-score{position:static;display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;text-align:left}
+  .rs-bar-wrap{grid-column:2}
+  .loc-grid{grid-template-columns:1fr}
+  .ft-top{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .stats-inner{grid-template-columns:1fr 1fr}
+  .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.08)}
+}
+@media(max-width:768px){
+  .nav-links,.nav-tel{display:none}
+  .ham{display:flex}
+  .brand-sub{display:none}
+  .hb-row{grid-template-columns:1fr 1fr}
+  .hb-btn{grid-column:span 2;justify-content:center}
+  .rooms-grid{grid-template-columns:1fr}
+  .sec{padding:4rem 1.5rem}
+  .am-inner{padding:4rem 1.5rem}
+  .am-grid{grid-template-columns:1fr 1fr}
+  .exp-media{display:none}
+  .exp-numbers{display:none}
+  .gal-grid{grid-template-columns:1fr;grid-template-rows:none}
+  .gi{aspect-ratio:16/9}
+  .loc-map-frame{height:280px}
+  .ft-top{grid-template-columns:1fr}
+  .ft-bottom{flex-direction:column;text-align:center}
+  .cta-btns{flex-direction:column;align-items:center}
+  .sec-head{flex-direction:column;align-items:flex-start}
+  .slide-indicators{display:none}
+  .stats-inner{grid-template-columns:1fr 1fr}
+  .nav-wrap{padding:0 1.5rem}
+}
+@media(max-width:500px){
+  .hb-row{grid-template-columns:1fr}
+  .hb-btn{grid-column:span 1}
+  .hero-book{padding:1.3rem}
+  .am-grid{grid-template-columns:1fr}
+  .stats-inner{grid-template-columns:1fr 1fr}
+  .rev-score{grid-template-columns:1fr}
+  .cta-trust{flex-direction:column;gap:1rem}
+  .ft-top{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <strong>⭐ Rated 4.9 / 5</strong> &nbsp;·&nbsp; 939 verified guest reviews &nbsp;·&nbsp; <strong>Best rates guaranteed when you book direct</strong>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-wrap">
+    <a href="#" class="brand">
+      <div class="brand-mark">
+        <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      </div>
+      <div class="brand-copy">
+        <span class="brand-name">LUXE LAGOON</span>
+        <span class="brand-sub">Newtown · Kolkata</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#rooms">Rooms</a></li>
+      <li><a href="#experience">About</a></li>
+      <li><a href="#amenities">Amenities</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#location">Location</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:+919836444446" class="nav-tel">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +91 98364 44446
+      </a>
+      <a href="#booking" class="nav-book">Book Now →</a>
+      <button class="ham" id="ham" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <div class="mob-head">
+    <span style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--teal3)">LUXE LAGOON</span>
+    <button class="mob-close" id="mobClose">✕</button>
+  </div>
+  <nav class="mob-links">
+    <a href="#rooms" onclick="closeMob()">Rooms</a>
+    <a href="#experience" onclick="closeMob()">About</a>
+    <a href="#amenities" onclick="closeMob()">Amenities</a>
+    <a href="#gallery" onclick="closeMob()">Gallery</a>
+    <a href="#location" onclick="closeMob()">Location</a>
+  </nav>
+  <a href="#booking" class="mob-book" onclick="closeMob()">Check Availability →</a>
+  <p style="margin-top:1.5rem;text-align:center;font-size:.9rem;color:var(--muted)">📞 +91 98364 44446</p>
+</div>
+
+<!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
+<section class="hero">
+  <div class="slides">
+    <div class="slide on"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+  </div>
+  <div class="hero-ov"></div>
+  <div class="hero-strip"></div>
+
+  <div class="slide-indicators">
+    <button class="si on" onclick="goSlide(0)" aria-label="Slide 1"></button>
+    <button class="si" onclick="goSlide(1)" aria-label="Slide 2"></button>
+    <button class="si" onclick="goSlide(2)" aria-label="Slide 3"></button>
+  </div>
+
+  <div class="hero-body">
+    <div class="hero-tag">
+      <span class="hero-tag-live"><span class="pulse"></span>Available Tonight</span>
+      <span class="hero-tag-rating">★ 4.9 · 939 Reviews</span>
+    </div>
+
+    <h1 class="hero-h">Where every stay<br>becomes a <em>memory.</em></h1>
+    <p class="hero-p">A luxury boutique retreat in the heart of New Town — steps from Biswa Bangla Gate, Eco Park, and Kolkata's finest dining. Spacious, spotless, and unforgettable.</p>
+
+    <div class="hero-book" id="booking">
+      <div class="hb-row">
+        <div class="hb-f">
+          <label class="hb-l" for="ci">Check In</label>
+          <input type="date" class="hb-i" id="ci"/>
+        </div>
+        <div class="hb-f">
+          <label class="hb-l" for="co">Check Out</label>
+          <input type="date" class="hb-i" id="co"/>
+        </div>
+        <div class="hb-f">
+          <label class="hb-l" for="rtype">Room Type</label>
+          <select class="hb-i" id="rtype">
+            <option value="" disabled selected>Any Room</option>
+            <option>Classic Room</option>
+            <option>Deluxe Room</option>
+            <option>Premium Suite</option>
+          </select>
+        </div>
+        <div class="hb-f">
+          <label class="hb-l" for="gsts">Guests</label>
+          <select class="hb-i" id="gsts">
+            <option>1 Guest</option>
+            <option selected>2 Guests</option>
+            <option>3 Guests</option>
+            <option>4+ Guests</option>
+          </select>
+        </div>
+        <button class="hb-btn" onclick="doBook()">
+          Check Availability
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+      <div class="hb-trust">
+        <div class="hb-t"><div class="hb-t-ic">✓</div>Best Rate Guaranteed</div>
+        <div class="hb-t"><div class="hb-t-ic">✓</div>Free Cancellation</div>
+        <div class="hb-t"><div class="hb-t-ic">✓</div>No Booking Fees</div>
+        <div class="hb-t"><div class="hb-t-ic">✓</div>Instant Confirmation</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-sc">
+    <div class="hero-sc-l"></div>
+    Scroll to explore
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ STATS BAR ════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item rv">
+      <span class="stat-ic">⭐</span>
+      <div><span class="stat-num">4.9</span><span class="stat-lbl">Guest Rating</span></div>
+    </div>
+    <div class="stat-item rv">
+      <span class="stat-ic">💬</span>
+      <div><span class="stat-num">939+</span><span class="stat-lbl">Verified Reviews</span></div>
+    </div>
+    <div class="stat-item rv">
+      <span class="stat-ic">🕐</span>
+      <div><span class="stat-num">24/7</span><span class="stat-lbl">Guest Service</span></div>
+    </div>
+    <div class="stat-item rv">
+      <span class="stat-ic">📍</span>
+      <div><span class="stat-num">2 min</span><span class="stat-lbl">To Biswa Bangla Gate</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════ ROOMS ══════════════════════════════════ -->
+<section class="rooms-sec sec" id="rooms">
+  <div class="sec-c">
+    <div class="sec-head rv">
+      <div>
+        <span class="kicker">Accommodation</span>
+        <h2 class="sec-h">Rooms &amp; <em>Suites</em></h2>
+      </div>
+      <a href="#booking" class="see-more">View all rooms →</a>
+    </div>
+    <div class="rooms-grid">
+      <div class="room-card rv">
+        <div class="ri-wrap">
+          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=700&q=80" alt="Classic Room" class="ri" loading="lazy"/>
+          <span class="r-badge hot">Available</span>
+          <div class="r-price-badge"><span class="from">From</span><span class="amt">₹1,800</span><span class="per">/night</span></div>
+        </div>
+        <div class="r-body">
+          <h3 class="r-name">Classic Room</h3>
+          <p class="r-desc">Thoughtfully appointed with premium bedding, modern fittings, and everything you need for a perfect night's rest.</p>
+          <div class="r-tags">
+            <span class="r-tag">AC</span><span class="r-tag">Free Wi-Fi</span><span class="r-tag">LED TV</span><span class="r-tag">Hot Water</span>
+          </div>
+          <div class="r-foot">
+            <span class="r-inclusions">Breakfast included</span>
+            <button class="btn-r" onclick="scrollBook()">Book →</button>
+          </div>
+        </div>
+      </div>
+      <div class="room-card rv">
+        <div class="ri-wrap">
+          <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=700&q=80" alt="Deluxe Room" class="ri" loading="lazy"/>
+          <span class="r-badge pop">Most Popular</span>
+          <div class="r-price-badge"><span class="from">From</span><span class="amt">₹2,600</span><span class="per">/night</span></div>
+        </div>
+        <div class="r-body">
+          <h3 class="r-name">Deluxe Room</h3>
+          <p class="r-desc">Elevated comfort with spacious interiors, beautiful city views, and upgraded amenities for a truly luxurious stay.</p>
+          <div class="r-tags">
+            <span class="r-tag">AC</span><span class="r-tag">Free Wi-Fi</span><span class="r-tag">Smart TV</span><span class="r-tag">Mini Fridge</span>
+          </div>
+          <div class="r-foot">
+            <span class="r-inclusions">Breakfast included</span>
+            <button class="btn-r" onclick="scrollBook()">Book →</button>
+          </div>
+        </div>
+      </div>
+      <div class="room-card rv">
+        <div class="ri-wrap">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=700&q=80" alt="Premium Suite" class="ri" loading="lazy"/>
+          <span class="r-badge new">Premium</span>
+          <div class="r-price-badge"><span class="from">From</span><span class="amt">₹3,800</span><span class="per">/night</span></div>
+        </div>
+        <div class="r-body">
+          <h3 class="r-name">Premium Suite</h3>
+          <p class="r-desc">Our finest accommodation — expansive, richly furnished, and designed for guests who want nothing but the best.</p>
+          <div class="r-tags">
+            <span class="r-tag">AC</span><span class="r-tag">Free Wi-Fi</span><span class="r-tag">Smart TV</span><span class="r-tag">Bathtub</span>
+          </div>
+          <div class="r-foot">
+            <span class="r-inclusions">Breakfast + Welcome drink</span>
+            <button class="btn-r" onclick="scrollBook()">Book →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ ABOUT ═══════════════════════════════════ -->
+<section class="exp-sec sec" id="experience">
+  <div class="sec-c">
+    <div class="exp-grid">
+      <div class="exp-media rv-l">
+        <div class="exp-img-main">
+          <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80" alt="LUXE LAGOON" loading="lazy"/>
+        </div>
+        <div class="exp-img-float">
+          <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=500&q=80" alt="Dining" loading="lazy"/>
+        </div>
+        <div class="exp-numbers">
+          <div class="exp-n"><span class="v">4.9</span><span class="l">Rating</span></div>
+          <div class="exp-n-div"></div>
+          <div class="exp-n"><span class="v">939</span><span class="l">Reviews</span></div>
+          <div class="exp-n-div"></div>
+          <div class="exp-n"><span class="v">24/7</span><span class="l">Service</span></div>
+        </div>
+      </div>
+      <div class="exp-text rv-r">
+        <span class="kicker">Our Story</span>
+        <h2>A luxury retreat in<br>New Town's <em>finest address</em></h2>
+        <p>Nestled in the vibrant CC Block of Action Area 1C, LUXE LAGOON is New Town's premier boutique hotel experience. With spacious rooms, immaculate cleanliness, and a calm, welcoming atmosphere — every guest feels genuinely at home.</p>
+        <p>Steps from Biswa Bangla Gate, Eco Park, and Fairfield by Marriott, we combine New Town's modern energy with the warmth and personal care that earns five-star reviews, every single time.</p>
+        <ul class="exp-ul">
+          <li>Spacious luxury rooms</li>
+          <li>Spotless cleanliness</li>
+          <li>24-hour personal service</li>
+          <li>Prime New Town location</li>
+          <li>Business &amp; family friendly</li>
+          <li>Early check-in available</li>
+        </ul>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:.5rem">
+          <a href="#booking" class="btn-p">Reserve Your Room →</a>
+          <a href="#location" class="btn-g">Get Directions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ AMENITIES ════════════════════════════════ -->
+<section class="am-sec" id="amenities">
+  <div class="am-inner">
+    <div class="am-top rv">
+      <div>
+        <span class="kicker">Facilities</span>
+        <h2 class="sec-h">Everything<br>you need</h2>
+      </div>
+      <div>
+        <p class="sec-p">Every detail at LUXE LAGOON is designed to make your stay seamless, comfortable and completely stress-free from the moment you arrive.</p>
+        <div class="am-cta"><a href="#booking" class="btn-gold" style="margin-top:1.2rem;display:inline-block">Book a Room →</a></div>
+      </div>
+    </div>
+    <div class="am-grid rv">
+      <div class="am-item"><span class="am-em">📶</span><div class="am-n">Free High-Speed Wi-Fi</div><div class="am-d">Seamless connectivity in every room &amp; common area</div></div>
+      <div class="am-item"><span class="am-em">❄️</span><div class="am-n">Air Conditioning</div><div class="am-d">Individual climate control in all rooms</div></div>
+      <div class="am-item"><span class="am-em">📺</span><div class="am-n">Smart / LED TV</div><div class="am-d">Premium entertainment in every room</div></div>
+      <div class="am-item"><span class="am-em">🍳</span><div class="am-n">Breakfast Included</div><div class="am-d">Fresh, wholesome breakfast every morning</div></div>
+      <div class="am-item"><span class="am-em">🚗</span><div class="am-n">Parking</div><div class="am-d">Secure vehicle parking on-site</div></div>
+      <div class="am-item"><span class="am-em">🛎️</span><div class="am-n">Room Service</div><div class="am-d">In-room dining available on request</div></div>
+      <div class="am-item"><span class="am-em">🔒</span><div class="am-n">24/7 Security</div><div class="am-d">Round-the-clock CCTV &amp; staff assistance</div></div>
+      <div class="am-item"><span class="am-em">🧹</span><div class="am-n">Daily Housekeeping</div><div class="am-d">Impeccably fresh rooms every day</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ GALLERY ═════════════════════════════════ -->
+<section class="gal-sec sec" id="gallery">
+  <div class="sec-c">
+    <div class="sec-head rv">
+      <div>
+        <span class="kicker">Gallery</span>
+        <h2 class="sec-h">See your <em>next stay</em></h2>
+      </div>
+    </div>
+    <div class="gal-grid rv">
+      <div class="gi">
+        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80" alt="Room" loading="lazy"/>
+      </div>
+      <div class="gi">
+        <img src="https://images.unsplash.com/photo-1562778612-e1e0cda9915c?w=700&q=80" alt="Hotel" loading="lazy"/>
+      </div>
+      <div class="gi">
+        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&q=80" alt="Pool area" loading="lazy"/>
+      </div>
+      <div class="gi">
+        <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=700&q=80" alt="Dining" loading="lazy"/>
+      </div>
+      <div class="gi">
+        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=700&q=80" alt="View" loading="lazy"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ REVIEWS ══════════════════════════════════ -->
+<section class="rev-sec sec">
+  <div class="sec-c">
+    <div class="sec-head rv">
+      <div>
+        <span class="kicker">Guest Reviews</span>
+        <h2 class="sec-h">What guests <em>say</em></h2>
+      </div>
+    </div>
+    <div class="rev-hero">
+      <div class="rev-score rv-l">
+        <span class="rs-num">4.9</span>
+        <span class="rs-stars">★★★★★</span>
+        <span class="rs-lbl">939 verified reviews</span>
+        <div class="rs-bar-wrap">
+          <div class="rs-bar"><span style="width:2.5rem">5 ★</span><div class="rs-bar-track"><div class="rs-bar-fill" style="width:92%"></div></div><span>92%</span></div>
+          <div class="rs-bar"><span style="width:2.5rem">4 ★</span><div class="rs-bar-track"><div class="rs-bar-fill" style="width:6%"></div></div><span>6%</span></div>
+          <div class="rs-bar"><span style="width:2.5rem">3 ★</span><div class="rs-bar-track"><div class="rs-bar-fill" style="width:2%"></div></div><span>2%</span></div>
+        </div>
+      </div>
+      <div class="rev-cards">
+        <div class="rev-card rv">
+          <div class="rc-top">
+            <div class="rc-author">
+              <div class="rc-av">V</div>
+              <div><span class="rc-name">Verified Guest</span><span class="rc-src">Kolkata · Google Review</span></div>
+            </div>
+            <div class="rc-stars">★★★★★</div>
+          </div>
+          <p class="rc-text">The hotel is extremely clean, well-maintained, and hygienic. The rooms are spacious with beautiful interiors and a very relaxing ambience. The location is perfect — easy to reach and very close to major places in New Town.</p>
+        </div>
+        <div class="rev-card rv">
+          <div class="rc-top">
+            <div class="rc-author">
+              <div class="rc-av">F</div>
+              <div><span class="rc-name">Family Guest</span><span class="rc-src">Kolkata · Google Review</span></div>
+            </div>
+            <div class="rc-stars">★★★★★</div>
+          </div>
+          <p class="rc-text">The rooms were luxurious and spotlessly clean. One thing I loved — the hotel is right beside Biswa Bangla Gate! The reception team were very polite and we even got early check-in at no extra charge. Thank you LUXE LAGOON!</p>
+        </div>
+        <div class="rev-card rv">
+          <div class="rc-top">
+            <div class="rc-author">
+              <div class="rc-av">A</div>
+              <div><span class="rc-name">Verified Guest</span><span class="rc-src">Kolkata · Google Review</span></div>
+            </div>
+            <div class="rc-stars">★★★★★</div>
+          </div>
+          <p class="rc-text">Exceptional people and exceptional service at absolutely affordable price. Every staff member is so engaged that you feel right at home. Rooms are luxurious and well maintained. A real nice experience — would recommend to everyone.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ LOCATION ═════════════════════════════════ -->
+<section class="loc-sec sec" id="location">
+  <div class="sec-c">
+    <div class="sec-head rv">
+      <div>
+        <span class="kicker">Location</span>
+        <h2 class="sec-h">Find us in <em>New Town</em></h2>
+      </div>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-map-card rv-l">
+        <div class="loc-map-frame">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d920!2d88.469236!3d22.57752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02753aa8945555%3A0xdcae974365a3fc82!2sLUXE+LAGOON!5e0!3m2!1sen!2sin!4v1700000000001"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="LUXE LAGOON location">
+          </iframe>
+        </div>
+        <div class="loc-map-info">
+          <div class="loc-addr">
+            <span class="ic">📍</span>
+            164, Street No. 197, CC Block, Action Area 1C, Newtown, Kolkata — 700156
+          </div>
+          <div class="loc-tags">
+            <h4>Nearby Landmarks</h4>
+            <div class="loc-tag-row"><span class="loc-tn">🌸 Biswa Bangla Gate</span><span class="loc-td">2 min</span></div>
+            <div class="loc-tag-row"><span class="loc-tn">🌿 Eco Park</span><span class="loc-td">5 min</span></div>
+            <div class="loc-tag-row"><span class="loc-tn">🏨 Fairfield by Marriott</span><span class="loc-td">3 min</span></div>
+            <div class="loc-tag-row"><span class="loc-tn">🛍️ City Centre 2 Mall</span><span class="loc-td">8 min</span></div>
+            <div class="loc-tag-row"><span class="loc-tn">✈️ Netaji Airport</span><span class="loc-td">20 min</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="loc-right rv-r">
+        <h3>In the heart of New Town's finest district</h3>
+        <p>Action Area 1C is Kolkata's most exciting new address — surrounded by world-class malls, dining destinations, the iconic Biswa Bangla Gate, and seamless airport connectivity.</p>
+        <p>Whether you're visiting for business, family, or a leisure escape — LUXE LAGOON puts you at the very centre of everything New Town has to offer.</p>
+        <div class="contact-stack">
+          <a href="tel:+919836444446" class="cc">
+            <div class="cc-ic">📞</div>
+            <div><span class="cc-lbl">Call Us</span><span class="cc-val">+91 98364 44446</span></div>
+          </a>
+          <a href="mailto:stay@luxelagoon.com" class="cc">
+            <div class="cc-ic">✉️</div>
+            <div><span class="cc-lbl">Email Us</span><span class="cc-val">stay@luxelagoon.com</span></div>
+          </a>
+          <a href="https://maps.app.goo.gl/5AdAQeBeXzDvmzLh7" target="_blank" rel="noopener" class="cc">
+            <div class="cc-ic">🗺️</div>
+            <div><span class="cc-lbl">Get Directions</span><span class="cc-val">Open in Google Maps →</span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ FINAL CTA ══════════════════════════════════ -->
+<section class="cta-sec">
+  <div class="cta-inner">
+    <span class="cta-k rv">Book Direct · Best Rate Guaranteed</span>
+    <h2 class="cta-h rv">Ready for your<br><em>luxury escape?</em></h2>
+    <p class="cta-p rv">Experience spacious rooms, impeccable service, and a 4.9★ stay in the heart of New Town. Book directly for the best price — no fees, no hassle.</p>
+    <div class="cta-btns rv">
+      <a href="#booking" class="btn-gold">Reserve Your Room →</a>
+      <a href="tel:+919836444446" class="btn-wh">📞 Call Us Now</a>
+    </div>
+    <div class="cta-trust rv">
+      <span class="ct">Free cancellation</span>
+      <span class="ct">Instant confirmation</span>
+      <span class="ct">No booking fees</span>
+      <span class="ct">Best rate direct</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ FOOTER ═════════════════════════════════ -->
+<footer>
+  <div class="ft-top">
+    <div>
+      <span class="ft-brand-name">LUXE LAGOON</span>
+      <p class="ft-brand-desc">A luxury boutique hotel in the heart of New Town, Kolkata. Spacious rooms, impeccable cleanliness, and genuine warm hospitality — right beside Biswa Bangla Gate.</p>
+      <div class="ft-badge">⭐ 4.9 · 939 Reviews · Newtown, Kolkata</div>
+    </div>
+    <div class="ft-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#experience">About</a></li>
+        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#location">Location</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#booking">Book Now</a></li>
+        <li><a href="tel:+919836444446">Call Us</a></li>
+        <li><a href="https://maps.app.goo.gl/5AdAQeBeXzDvmzLh7" target="_blank" rel="noopener">Directions</a></li>
+        <li><a href="#">Cancellation Policy</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Contact</h4>
+      <div class="ft-ci"><span class="i">📍</span>164 St. No. 197, CC Block, Action Area 1C, Newtown, Kolkata 700156</div>
+      <div class="ft-ci"><span class="i">📞</span>+91 98364 44446</div>
+      <div class="ft-ci"><span class="i">✉️</span>stay@luxelagoon.com</div>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span class="ft-copy">© 2025 LUXE LAGOON, Newtown Kolkata. All rights reserved.</span>
+    <div class="ft-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+      <a href="#">Cancellation</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Default dates ──
+(function(){
+  var t = new Date(), n = new Date(t);
+  n.setDate(n.getDate()+1);
+  var f = function(d){ return d.toISOString().split('T')[0]; };
+  var ci = document.getElementById('ci'), co = document.getElementById('co');
+  if(ci) ci.value = f(t);
+  if(co) co.value = f(n);
+})();
+
+// ── Nav shadow on scroll ──
+var navEl = document.getElementById('nav');
+window.addEventListener('scroll', function(){
+  navEl.classList.toggle('up', window.scrollY > 8);
+});
+
+// ── Slideshow ──
+var cur = 0;
+var sls = document.querySelectorAll('.slide');
+var sis = document.querySelectorAll('.si');
+function goSlide(n){
+  sls[cur].classList.remove('on'); sis[cur].classList.remove('on');
+  cur = n;
+  sls[cur].classList.add('on'); sis[cur].classList.add('on');
+}
+var timer = setInterval(function(){ goSlide((cur+1) % sls.length); }, 6000);
+
+// ── Mobile menu ──
+var hamBtn = document.getElementById('ham');
+var mob    = document.getElementById('mobMenu');
+var mobCls = document.getElementById('mobClose');
+hamBtn.addEventListener('click', function(){ mob.classList.add('open'); });
+mobCls.addEventListener('click', function(){ mob.classList.remove('open'); });
+function closeMob(){ mob.classList.remove('open'); }
+
+// ── Scroll reveal ──
+var ro = new IntersectionObserver(function(entries){
+  entries.forEach(function(e, i){
+    if(e.isIntersecting){
+      setTimeout(function(){ e.target.classList.add('in'); }, i * 75);
+      ro.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -28px 0px' });
+document.querySelectorAll('.rv, .rv-l, .rv-r').forEach(function(el){ ro.observe(el); });
+
+// ── Book ──
+function scrollBook(){
+  document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+}
+function doBook(){
+  var ci = document.getElementById('ci').value;
+  var co = document.getElementById('co').value;
+  if(!ci || !co){ alert('Please select check-in and check-out dates.'); return; }
+  if(new Date(co) <= new Date(ci)){ alert('Check-out must be after check-in.'); return; }
+  alert('Thank you for choosing LUXE LAGOON!\n\nFor instant confirmation:\n📞 +91 98364 44446\n✉️ stay@luxelagoon.com\n\nWe look forward to welcoming you!');
+}
+</script>
+</body>
+</html>
